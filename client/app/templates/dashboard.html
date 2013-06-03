@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block main %}
+<div class="container">
+   <div class="row">
+        <div class="span12">
+            <div class="tabbable"> <!-- Only required for left/right tabs -->
+                <ul class="nav nav-tabs">
+                    {% set active = False %}
+                    {% for elem in inner_menu %}
+                        {% if not active %}
+                            <li class='active'><a href="#{{elem}}" data-toggle="tab">{{elem}}</a></li>
+                            {% set active = True %}
+                        {% else %}
+                            <li><a href="#{{elem}}" data-toggle="tab">{{elem}}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+                <div class="tab-content">
+                {% for elem in inner_menu %}
+                    <div class="tab-pane" id="{{elem}}">
+                        {% include "table.html" %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
