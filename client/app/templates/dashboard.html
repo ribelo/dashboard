@@ -5,9 +5,8 @@
         <div class="span12">
             <div class="tabbable"> <!-- Only required for left/right tabs -->
                 <ul class="nav nav-tabs">
-                    {% set active = False %}
                     {% for elem in inner_menu %}
-                        {% if not active %}
+                        {% if loop.first %}
                             <li class='active'><a href="#{{elem}}" data-toggle="tab">{{elem}}</a></li>
                             {% set active = True %}
                         {% else %}
@@ -18,7 +17,8 @@
                 <div class="tab-content">
                 {% for elem in inner_menu %}
                     <div class="tab-pane" id="{{elem}}">
-                        {% include "table.html" %}
+                        {% import "table.html" as table with context %}
+                            {{table('esx')}}
                     </div>
                 {% endfor %}
             </div>

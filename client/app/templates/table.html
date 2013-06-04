@@ -2,16 +2,23 @@
 <table class="table table-hover">
     <thead>
         <tr>
-        {% for header in dash['headers'] %}
+        {% for header in jdata['vheaders'] %}
             <th>{{header}}</th>
         {% endfor %}
         </tr>
     </thead>
     <tbody>
-    {% for row in dash['rows'] %}
+    {% for row in jdata['rows'] %}
         <tr>
+            <th>{{jdata['hheaders'][loop.index0]}}</th>
             {% for elem in row %}
-                <td>{{elem}}</td>
+                {% if elem['type'] == 'bull' %}
+                    <td class="text-success">{{elem['output']}}</td>
+                {% elif elem['type'] == 'bear' %}
+                    <td class="text-error">{{elem['output']}}</td>
+                {% else %}
+                    <td>{{elem['output']}}</td>
+                {% endif %}
             {% endfor %}
         </tr>
     {% endfor %}
