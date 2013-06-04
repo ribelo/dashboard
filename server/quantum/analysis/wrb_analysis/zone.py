@@ -102,7 +102,7 @@ def swing_point1(open, high, low, close, dir,
 
 
 @jit(int8[:](double[:], double[:], double[:], double[:], int8[:],
-              double[:], int64[:], int8[:], int8[:]))
+             double[:], int64[:], int8[:], int8[:]))
 def swing_point2(open, high, low, close, dir,
                  body_size, bars_broken_by_body, wrb, wrb_hg):
     """Calculate wrb swing point def 2 zone
@@ -306,7 +306,7 @@ def strong_continuation2(open, high, low, close, dir, body_size,
 
 
 @jit(int8[:](double[:], double[:], double[:], double[:], int8[:], double[:],
-              double[:], int64[:], int8[:]))
+             double[:], int64[:], int8[:]))
 def strong_continuation3(open, high, low, close, dir, body_size,
                          body_mid_point, bars_broken_by_body, wrb_hg):
     """Calculate wrb strong continuation def 3 zone
@@ -375,7 +375,7 @@ def strong_continuation3(open, high, low, close, dir, body_size,
 
 
 @jit(int8[:](double[:], double[:], double[:], double[:], int8[:], double[:],
-              double[:], int64[:], int8[:]))
+             double[:], int64[:], int8[:]))
 def strong_continuation4(open, high, low, close, dir, body_size,
                          body_mid_point, bars_broken_by_body, wrb_hg):
     """Calculate wrb strong continuation def 3 zone

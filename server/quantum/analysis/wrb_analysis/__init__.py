@@ -1,8 +1,10 @@
 #-*- coding: utf-8-*-
 import pandas as pd
 from . import base
+from . import dcm
 from . import zone
 from . import fvb
+
 
 
 def calculate_base(df, gap=True, reaction=True, reaction_break=True,
@@ -123,3 +125,16 @@ def calculate_fvb(df, basic=True):
         df['fvb'] = fvb.basic(df['open'], df['close'],
                               df['dir'], df['body_size'], df['bar_mid_point'],
                               df['filled_by'], df['wrb'], df['zones'])
+
+
+def calculate_dcm(df):
+
+    assert 'open' in df, 'DataFrame must have open column'
+    assert 'high' in df, 'DataFrame must have high column'
+    assert 'low' in df, 'DataFrame must have low column'
+    assert 'close' in df, 'DataFrame must have close column'
+    assert 'wrb' in df, 'DataFrame must have body wrb column'
+    assert 'wrb_hg' in df, 'DataFrame must have body wrb_hg column'
+
+    df['dcm'] = dcm.get(df['open'], df['high'], df['low'],
+                        df['close'], df['wrb'], df['wrb_hg'])
