@@ -3,9 +3,8 @@ import os
 from datetime import datetime, timedelta
 import csv
 import pandas as pd
-import time
 from . import api
-from . import config
+from server.config import NETFOUNDS_QUOTES_PATH
 
 
 def request_quote(from_date, currency):
@@ -30,7 +29,7 @@ def request_quote(from_date, currency):
     return pd.DataFrame(data={'bid': bid, 'vol': vol}, index=index)
 
 
-def save_quote(quotes, currency, path=config.data_path):
+def save_quote(quotes, currency, path=NETFOUNDS_QUOTES_PATH):
     if not os.path.exists(path):
         os.makedirs(path)
     try:
@@ -39,7 +38,7 @@ def save_quote(quotes, currency, path=config.data_path):
         print(e)
 
 
-def load_quote(currency, path=config.data_path):
+def load_quote(currency, path=NETFOUNDS_QUOTES_PATH):
     try:
         return pd.load(path + '/{}.dat'.format(currency))
     except FileNotFoundError:

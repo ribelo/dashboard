@@ -5,7 +5,7 @@ from numba.decorators import jit
 from numba import double, int64, int8
 from server.tool import deepthroat as dt
 from .toolbox import *
-from server.config import CONTRACTION
+from server.config import QUANTUM_CONTRACTION
 
 
 @jit(int8[:](double[:], double[:], double[:], double[:], int8[:],
@@ -44,7 +44,7 @@ def swing_point1(open, high, low, close, dir,
         if wrb_hg[v1]:
             continue
         # Look for V2
-        for v2 in range(v1 - 4, v1 - CONTRACTION, -1):  # 4 + 64 = 68
+        for v2 in range(v1 - 4, v1 - QUANTUM_CONTRACTION, -1):  # 4 + 64 = 68
             # Bullish Swing Point
             # V2 must be wrb or wrb hg
             if (dir[v1] == 1 and (wrb[v2] or wrb_hg[v2]) and
@@ -137,7 +137,7 @@ def swing_point2(open, high, low, close, dir,
         if not wrb_hg[v1]:
             continue
         # Look for V2
-        for v2 in range(v1 - 4, v1 - CONTRACTION, -1):  # 4 + 64 = 68
+        for v2 in range(v1 - 4, v1 - QUANTUM_CONTRACTION, -1):  # 4 + 64 = 68
             # Bullish Swing Point
             if (dir[v1] == 1 and
                 # V2 must be wrb or wrb hg and v2 must be bear
@@ -204,7 +204,7 @@ def strong_continuation1(open, high, low, dir, body_size, reaction_break,
             continue
         # Bullish Swing Point
         # Look for V2
-        for v2 in range(v1 - 4, v1 - CONTRACTION, -1):  # 4 + 64 = 68
+        for v2 in range(v1 - 4, v1 - QUANTUM_CONTRACTION, -1):  # 4 + 64 = 68
             # V2 wrb hg and must be bull
             if (dir[v1] == 1 and wrb_hg[v2] == 1 and
                 # Contraction volatility must share min 1 pip with V2
@@ -267,7 +267,7 @@ def strong_continuation2(open, high, low, close, dir, body_size,
             continue
         # Bullish Swing Point
         # Look for V2
-        for v2 in range(v1 - 4, v1 - CONTRACTION, -1):  # 4 + 64 = 68
+        for v2 in range(v1 - 4, v1 - QUANTUM_CONTRACTION, -1):  # 4 + 64 = 68
             # V2 wrb hg and must be bull
             if (dir[v1] == 1 and wrb_hg[v2] == 1 and
                 # Must be volatiliti expand after v1
@@ -338,7 +338,7 @@ def strong_continuation3(open, high, low, close, dir, body_size,
             continue
         # Bullish Swing Point
         # Look for V2
-        for v2 in range(v1 - 4, v1 - CONTRACTION, -1):  # 4 + 64 = 68
+        for v2 in range(v1 - 4, v1 - QUANTUM_CONTRACTION, -1):  # 4 + 64 = 68
             # V2 wrb hg and must be bull
             if (dir[v1] == 1 and wrb_hg[v2] == 1 and
                 # v2 must have the bodies of the prior contracting volatility
@@ -407,7 +407,7 @@ def strong_continuation4(open, high, low, close, dir, body_size,
             continue
         # Bullish Swing Point
         # Look for V2
-        for v2 in range(v1 - 4, v1 - CONTRACTION, -1):  # 4 + 64 = 68
+        for v2 in range(v1 - 4, v1 - QUANTUM_CONTRACTION, -1):  # 4 + 64 = 68
             # V2 wrb hg and must be bull
             if (dir[v1] == 1 and wrb_hg[v2] == 1 and
                 # V1 body > V2 body and close V1 > close V2

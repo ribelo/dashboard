@@ -2,10 +2,10 @@
 import os
 from datetime import datetime, timedelta
 import pandas as pd
-from . import config
 from . import api
 import lzma
 import struct
+from server.config import DUKASCOPY_QUOTES_PATH
 
 
 def parse_bi5(bi5, last_date, point=5):
@@ -56,19 +56,22 @@ def request_quote(from_date, currency):
     return output
 
 
-def save_quote(quotes, currency, path=config.data_path):
-    if not os.path.exists(path):
-        os.makedirs(path)
+def save_quote(quotes, currency,):
+    if not os.path.exists(DUKASCOPY_QUOTES_PATH):
+        os.makedirs(DUKASCOPY_QUOTES_PATH)
     try:
-        quotes.save(path + '/{}.dat'.format(currency))
+        quotes.save(DUKASCOPY_QUOTES_PATH +
+                    '/{}.dat'.format(currency))
     except Exception as e:
         print(e)
 
 
-def load_quote(currency, path=config.data_path):
+def load_quote(currency):
     try:
-        return pd.load(path + '/{}.dat'.format(currency))
-    except FileNotFoundError:
+        return pd.load(DUKASCOPY_QUOTES_PATH +
+                       '/{}.dat'.format(currency))
+    except FileNotFoundError as e:
+        print(e)
         return None
     except Exception as e:
         raise(e)

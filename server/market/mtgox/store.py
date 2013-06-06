@@ -4,21 +4,23 @@ import pickle
 import time
 import uuid
 
-from . import config
 from . import api
 from . import io
 import arrow
 import redis
 import tulip
 
+from server.config import (MTGOX_INTERVAL, MTGOX_CURRENCY,
+                           MTGOX_DAYS_DOWNLOAD)
+
 
 class QuotesStore:
 
     def __init__(self, *args, **kwds):
-        self.interval = config.interval
+        self.interval = MTGOX_INTERVAL
         self.quotes = None
-        self.currency = config.currency
-        self.days_download = config.days_download
+        self.currency = MTGOX_CURRENCY
+        self.days_download = MTGOX_DAYS_DOWNLOAD
 
     @tulip.task
     def auto_update(self):
@@ -76,7 +78,7 @@ class MarketStore:
     def __init__(self, currency=None, redis_=None, db_nr=0, *args, **kwds):
         self.redis = redis_ if redis_ else redis.StrictRedis(db=db_nr)
         self.db_nr = db_nr
-        self.currency = config.currency if not currency else currency
+        self.currency = MTGOX_CURRENCY if not currency else currency
         self.tasks = [
             self.update_lag, self.update_ticker_fast, self.update_info]
 
@@ -149,16 +151,16 @@ class Watchman:
                                                take=order['take'])
                     if order['stop']:
                         yield from self.sell_limit(currency=order['currency'],
-                                                  amount=order['amount'],
-                                                  price=order['stop'],
-                                                  stop=0,
-                                                  take=0)
-                    if order['take']:
-                        yield from self.sell_stop(currency=order['currency'],
                                                    amount=order['amount'],
-                                                   price=order['take'],
+                                                   price=order['stop'],
                                                    stop=0,
                                                    take=0)
+                    if order['take']:
+                        yield from self.sell_stop(currency=order['currency'],
+                                                  amount=order['amount'],
+                                                  price=order['take'],
+                                                  stop=0,
+                                                  take=0)
                 elif order['type'] == 'buy_stop':
                     if order['take']:
                         assert order['price'] < order['take']
@@ -197,16 +199,16 @@ class Watchman:
                                                 take=order['take'])
                     if order['stop']:
                         yield from self.buy_limit(currency=order['currency'],
-                                                 amount=order['amount'],
-                                                 price=order['take'],
-                                                 stop=0,
-                                                 take=0)
-                    if order['take']:
-                        yield from self.buy_stop(currency=order['currency'],
                                                   amount=order['amount'],
-                                                  price=order['stop'],
+                                                  price=order['take'],
                                                   stop=0,
                                                   take=0)
+                    if order['take']:
+                        yield from self.buy_stop(currency=order['currency'],
+                                                 amount=order['amount'],
+                                                 price=order['stop'],
+                                                 stop=0,
+                                                 take=0)
 
                 elif order['type'] == 'sell_stop':
                     if order['take']:
@@ -238,7 +240,7 @@ class Watchman:
 
     @tulip.coroutine
     def buy_market(self, currency, amount, stop, take):
-        #api.order_quote('bid', amount, currency)
+        # api.order_quote('bid', amount, currency)
         print('buy_market')
         if stop:
             self.sell_stop(currency, amount, stop, 0, 0)
@@ -275,7 +277,8 @@ class Watchman:
     def check_buy_limit(self, order):
         ticker = pickle.loads(self.redis.hget('mtgox', 'ticker_fast'))
         ticker_price = int(ticker['buy']['value_int'])
-        print('check buy limit, ticker:', ticker_price, 'price', order['price'])
+        print('check buy limit, ticker:',
+              ticker_price, 'price', order['price'])
         if order['price'] < ticker_price:
             return True
         else:
@@ -283,7 +286,7 @@ class Watchman:
 
     @tulip.coroutine
     def sell_market(self, currency, amount, stop, take):
-        #api.order_quote('ask', amount, currency)
+        # api.order_quote('ask', amount, currency)
         print('sell_market')
         if stop:
             self.buy_stop(currency, amount, stop, 0, 0)
@@ -302,7 +305,8 @@ class Watchman:
     def check_sell_stop(self, order):
         ticker = pickle.loads(self.redis.hget('mtgox', 'ticker_fast'))
         ticker_price = int(ticker['sell']['value_int'])
-        print('check sell stop, ticker:', ticker_price, 'price', order['price'])
+        print('check sell stop, ticker:',
+              ticker_price, 'price', order['price'])
         if order['price'] < ticker_price:
             return True
         else:
@@ -320,7 +324,8 @@ class Watchman:
     def check_sell_limit(self, order):
         ticker = pickle.loads(self.redis.hget('mtgox', 'ticker_fast'))
         ticker_price = int(ticker['sell']['value_int'])
-        print('check sell limit, ticker:', ticker_price, 'price', order['price'])
+        print('check sell limit, ticker:',
+              ticker_price, 'price', order['price'])
         if order['price'] > ticker_price:
             return True
         else:

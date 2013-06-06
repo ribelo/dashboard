@@ -2,11 +2,10 @@
 import os
 from datetime import datetime
 from operator import itemgetter
-import tulip
 
 import pandas as pd
-from . import config
 from . import api
+from server.config import MTGOX_CURRENCY, MTGOX_QUOTES_PATH
 
 
 def _tid_to_datetime(tid):
@@ -17,7 +16,7 @@ def _datetime_to_tid(date):
     return date.timestamp() * 1e6
 
 
-def request_quote(from_date, currency=config.currency):
+def request_quote(from_date, currency=MTGOX_CURRENCY):
     from_date = _datetime_to_tid(from_date)
 
     bid, vol, index = [], [], []
@@ -39,7 +38,7 @@ def request_quote(from_date, currency=config.currency):
     return pd.DataFrame(data={'bid': bid, 'vol': vol}, index=index)
 
 
-def save_quote(quotes, currency=config.currency, path=config.data_path):
+def save_quote(quotes, currency=MTGOX_CURRENCY, path=MTGOX_QUOTES_PATH):
     if not os.path.exists(path):
         os.makedirs(path)
     try:
@@ -48,7 +47,7 @@ def save_quote(quotes, currency=config.currency, path=config.data_path):
         print(e)
 
 
-def load_quote(currency=config.currency, path=config.data_path):
+def load_quote(currency=MTGOX_CURRENCY, path=MTGOX_QUOTES_PATH):
     try:
         return pd.load(path + '/{}.dat'.format(currency))
     except FileNotFoundError:

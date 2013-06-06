@@ -3,7 +3,7 @@
 import numpy as np
 from numba.decorators import jit
 from numba import double, int64, int8
-from server.config import LOOK_BACK
+from server.config import QUANTUM_LOOK_BACK
 
 
 @jit(int8[:](double[:], double[:], int8[:], double[:],
@@ -36,7 +36,7 @@ def basic(open, close, dir, body_size,
     for i in range(size):
         if (dir[i] == 1 and wrb[i-1] == -1 and close[i] > body_mid_point[i-1]):
             # Look for zone
-            for j in range(2, min(LOOK_BACK + 2, i)):
+            for j in range(2, min(QUANTUM_LOOK_BACK + 2, i)):
                 if (zones[i-j] > 0 and body_size[i-j] > body_size[i-1] and
                     filled_by[i-j] >= i - 1 and
                     ((close[i-1] <= close[i-j] and close[i-1] > open[i-j] and
@@ -45,7 +45,7 @@ def basic(open, close, dir, body_size,
                     result[i] = 1
         elif (dir[i] == -1 and wrb[i-1] == 1 and close[i] < body_mid_point[i-1]):
             # Look for zone
-            for j in range(2, min(LOOK_BACK + 2, i)):  # 64 + 2 = 66
+            for j in range(2, min(QUANTUM_LOOK_BACK + 2, i)):  # 64 + 2 = 66
                 if (zones[i-j] < 0 and body_size[i-j] > body_size[i-1] and
                     filled_by[i-j] >= i - 1 and
                     ((close[i-1] >= close[i-j] and close[i-1] < open[i-j] and

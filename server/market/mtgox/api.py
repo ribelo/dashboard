@@ -4,9 +4,10 @@ import hashlib
 import hmac
 import time
 
-from . import config
 import requests
 import urllib.parse
+from server.config import (MTGOX_SECRET, MTGOX_KEY, MTGOX_CURRENCY,
+                           MTGOX_URL)
 
 
 def urlJoin(*args):
@@ -33,9 +34,9 @@ def _specify(name, currency, data=None):
 
 
 def _get_signature(data):
-    assert config.key, "Key not found"
-    assert config.secret, "Secret not found"
-    h = hmac.new(base64.b64decode(config.secret), data, hashlib.sha512)
+    assert MTGOX_KEY, "Key not found"
+    assert MTGOX_SECRET, "Secret not found"
+    h = hmac.new(base64.b64decode(MTGOX_SECRET), data, hashlib.sha512)
     return base64.b64encode(h.digest())
 
 
@@ -65,10 +66,10 @@ def _request(path, data):
     else:
         data.update({'nonce': time.time()})
     hash_data = (path + chr(0) + urllib.parse.urlencode(data)).encode('utf-8')
-    url = urlJoin(config.url, path)
+    url = urlJoin(MTGOX_URL, path)
 
     signature = _get_signature(hash_data)
-    headers = {'Rest-Key': config.key, 'Rest-Sign': signature}
+    headers = {'Rest-Key': MTGOX_KEY, 'Rest-Sign': signature}
 
     while True:
         try:
@@ -82,7 +83,7 @@ def _request(path, data):
     return request
 
 
-def info(currency=config.currency):
+def info(currency=MTGOX_CURRENCY):
     """This method provides a lot of information about your account
 
     return:
@@ -125,7 +126,7 @@ def info(currency=config.currency):
     return _specify(name='info', currency=currency)
 
 
-def orders(currency=config.currency):
+def orders(currency=MTGOX_CURRENCY):
     """Get information on your current orders
 
     return:
@@ -147,7 +148,7 @@ def orders(currency=config.currency):
     return _specify('orders', currency=currency)
 
 
-def currency(currency=config.currency):
+def currency(currency=MTGOX_CURRENCY):
     """Get information for a given currency
 
     return:
@@ -171,7 +172,7 @@ def currency(currency=config.currency):
     return _specify('currency', data=data, currency=currency)
 
 
-def ticker(currency=config.currency):
+def ticker(currency=MTGOX_CURRENCY):
     """Get the most recent information for a currency pair
 
     return:
@@ -197,7 +198,7 @@ def ticker(currency=config.currency):
     return _specify(name='ticker', currency=currency)
 
 
-def ticker_fast(currency=config.currency):
+def ticker_fast(currency=MTGOX_CURRENCY):
     """Get the most recent information for a currency pair
 
     return:
@@ -218,7 +219,7 @@ def ticker_fast(currency=config.currency):
     return _specify(name='ticker_fast', currency=currency)
 
 
-def depth_fetch(currency=config.currency):
+def depth_fetch(currency=MTGOX_CURRENCY):
     """Gets recent depth information
 
     return:
@@ -233,7 +234,7 @@ def depth_fetch(currency=config.currency):
     return _specify(name='depth/fetch', currency=currency)
 
 
-def depth_full(currency=config.currency):
+def depth_full(currency=MTGOX_CURRENCY):
     """Gets a complete full depth data
 
     return:
@@ -256,7 +257,7 @@ def depth_full(currency=config.currency):
     return _specify(name='depth/full')
 
 
-def wallet_history(currency=config.currency):
+def wallet_history(currency=MTGOX_CURRENCY):
     """
     Gets the transaction history of a specified currency
     wallet.
@@ -304,7 +305,7 @@ def wallet_history(currency=config.currency):
     return _specify('wallet/history', currency=currency, data=data)
 
 
-def trades_fetch(since=None, currency=config.currency):
+def trades_fetch(since=None, currency=MTGOX_CURRENCY):
     """This method gets up to 1000 trades from the date
     specified (or the most recent, if none)
 
@@ -327,7 +328,7 @@ def trades_fetch(since=None, currency=config.currency):
     return _specify(name='trades/fetch', currency=currency, data=data)
 
 
-def order_quote(type_, amount, currency=config.currency):
+def order_quote(type_, amount, currency=MTGOX_CURRENCY):
     """Get an up-to-date quote for a bid or ask transaction
 
     return:
@@ -340,7 +341,7 @@ def order_quote(type_, amount, currency=config.currency):
     return _specify('order/quote', data)
 
 
-def order_add(type_, amount, price, currency=config.currency):
+def order_add(type_, amount, price, currency=MTGOX_CURRENCY):
     """Creates a currency trade order
 
     return:
@@ -356,7 +357,7 @@ def order_add(type_, amount, price, currency=config.currency):
     return _specify('order/add', currency=currency, data=data)
 
 
-def order_lag(currency=config.currency):
+def order_lag(currency=MTGOX_CURRENCY):
     """Returns the lag time for executing orders in microseconds
 
     return:
