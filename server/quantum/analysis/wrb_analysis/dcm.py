@@ -3,7 +3,8 @@
 import numpy as np
 from numba.decorators import jit
 from numba import double, int8
-from tool import deepthroat as dt
+from server.tool import deepthroat as dt
+from server import config
 
 
 @jit(int8[:](double[:], double[:], double[:], double[:], int8[:], int8[:]))

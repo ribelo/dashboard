@@ -32,7 +32,7 @@ def request_quote(from_date, currency):
 
 def save_quote(quotes, currency, path=config.data_path):
     if not os.path.exists(path):
-        os.makedirs(d)
+        os.makedirs(path)
     try:
         quotes.save(path + '/{}.dat'.format(currency))
     except Exception as e:
@@ -50,7 +50,3 @@ def load_quote(currency, path=config.data_path):
 
 def clean_quote(quotes, since):
     return quotes[quotes.index >= since]
-
-
-def parse_quote(data):
-    index, bid = [], []

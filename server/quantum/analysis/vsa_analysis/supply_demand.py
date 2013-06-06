@@ -2,6 +2,7 @@
 import numpy as np
 from numba.decorators import jit
 from numba import double, int64, int8
+from server.config import LOOK_BACK
 
 
 @jit(int8[:](double[:], double[:], double[:], double[:],
@@ -17,7 +18,7 @@ def _nsd1(open, high, low, close, volume, bar_size, filled_by, zones):
             volume[i] < volume[i-2] and close[i] < close[i+1] and
                 low[i] <= low[i+1]):
             # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] > 0 and filled_by[i-j] >= i and
                         (low[i] <= close[i-j])):
                     result[i] = 1
@@ -28,7 +29,7 @@ def _nsd1(open, high, low, close, volume, bar_size, filled_by, zones):
               volume[i] < volume[i-2] and close[i] > close[i+1] and
                 high[i] >= high[i+1]):
             # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] < 0 and filled_by[i-j] >= i and
                         (high[i] >= close[i-j])):
                     result[i] = -1
@@ -49,7 +50,7 @@ def _nsd2(open, high, low, close, volume, bar_size, filled_by, zones):
             close[i] < close[i+1] and low[i] <= low[i+1] and
                 volume[i] < volume[i-1] and volume[i] < volume[i-2]):
             # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] > 0 and filled_by[i-j] >= i and
                         (low[i] <= close[i-j])):
                     result[i] = 1
@@ -60,7 +61,7 @@ def _nsd2(open, high, low, close, volume, bar_size, filled_by, zones):
               close[i] > close[i+1] and high[i] >= high[i+1] and
                 volume[i] < volume[i-1] and volume[i] < volume[i-2]):
                 # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] < 0 and filled_by[i-j] >= i and
                         (high[i] >= close[i-j])):
                     result[i] = -1
@@ -81,7 +82,7 @@ def _nsd3(open, high, low, close, volume, bar_size, filled_by, zones):
             close[i] < close[i+1] and low[i] <= low[i+1] and
                 volume[i] < volume[i-1] and volume[i] < volume[i-2]):
                 # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] > 0 and filled_by[i-j] >= i and
                         (low[i] <= close[i-j])):
                     result[i] = 1
@@ -92,7 +93,7 @@ def _nsd3(open, high, low, close, volume, bar_size, filled_by, zones):
               close[i] > close[i+1] and high[i] >= high[i+1] and
                 volume[i] < volume[i-1] and volume[i] < volume[i-2]):
                 # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] < 0 and filled_by[i-j] >= i and
                         (high[i] >= close[i-j])):
                     result[i] = -1
@@ -115,7 +116,7 @@ def _nsd4(open, high, low, close, volume, bar_size,
             close[i] < close[i+1] and low[i] <= low[i+1] and
                 volume[i] < volume[i-1] and volume[i] < volume[i-2]):
                 # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] > 0 and filled_by[i-j] >= i and
                         (low[i] <= close[i-j])):
                     result[i] = 1
@@ -127,7 +128,7 @@ def _nsd4(open, high, low, close, volume, bar_size,
               close[i] > close[i+1] and high[i] >= high[i+1] and
                 volume[i] < volume[i-1] and volume[i] < volume[i-2]):
                 # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] < 0 and filled_by[i-j] >= i and
                         (high[i] >= close[i-j])):
                     result[i] = -1
@@ -148,7 +149,7 @@ def _nsd5(open, high, low, close, volume, bar_size, filled_by, zones):
             close[i] < close[i+1] and low[i] <= low[i+1] and
                 volume[i] < volume[i-1] and volume[i] < volume[i-2]):
                 # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] > 0 and filled_by[i-j] >= i and
                         (low[i] <= close[i-j])):
                     result[i] = 1
@@ -159,7 +160,7 @@ def _nsd5(open, high, low, close, volume, bar_size, filled_by, zones):
               close[i] > close[i+1] and high[i] >= high[i+1] and
                 volume[i] < volume[i-1] and volume[i] < volume[i-2]):
                 # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] < 0 and filled_by[i-j] >= i and
                         (high[i] >= close[i-j])):
                     result[i] = -1
@@ -179,7 +180,7 @@ def _nsd6(open, high, low, close, volume, bar_size, filled_by, zones):
             close[i] < close[i+1] and low[i] <= low[i+1] and
                 volume[i] < volume[i-1] and volume[i] < volume[i-2]):
                 # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] > 0 and filled_by[i-j] >= i and
                         (low[i] <= close[i-j])):
                     result[i] = 1
@@ -189,7 +190,7 @@ def _nsd6(open, high, low, close, volume, bar_size, filled_by, zones):
               close[i] > close[i+1] and high[i] >= high[i+1] and
                 volume[i] < volume[i-1] and volume[i] < volume[i-2]):
                 # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] < 0 and filled_by[i-j] >= i and
                         (high[i] >= close[i-j])):
                     result[i] = -1
@@ -210,7 +211,7 @@ def _nsd7(open, high, low, close, volume, bar_size, filled_by, zones):
             low[i] <= low[i+1] and volume[i] < volume[i-1] and
                 volume[i] < volume[i-2]):
                 # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] > 0 and filled_by[i-j] >= i and
                         (low[i] <= close[i-j])):
                     result[i] = 1
@@ -221,7 +222,7 @@ def _nsd7(open, high, low, close, volume, bar_size, filled_by, zones):
               high[i] >= high[i+1] and volume[i] < volume[i-1] and
                 volume[i] < volume[i-2]):
                 # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] < 0 and filled_by[i-j] >= i and
                         (high[i] >= close[i-j])):
                     result[i] = -1
@@ -242,7 +243,7 @@ def _nsd8(open, high, low, close, volume, bar_size, filled_by, zones):
             close[i] < close[i+1] and low[i] <= low[i+1] and
                 volume[i] < volume[i-1] and volume[i] < volume[i-2]):
                 # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] > 0 and filled_by[i-j] >= i and
                         (low[i] <= close[i-j])):
                     result[i] = 1
@@ -253,7 +254,7 @@ def _nsd8(open, high, low, close, volume, bar_size, filled_by, zones):
               close[i] > close[i+1] and high[i] >= high[i+1] and
                 volume[i] < volume[i-1] and volume[i] < volume[i-2]):
                 # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] < 0 and filled_by[i-j] >= i and
                         (high[i] >= close[i-j])):
                     result[i] = -1
@@ -275,7 +276,7 @@ def _nsd9(open, high, low, close, volume, bar_size,
             close[i] < close[i+1] and low[i] <= low[i+1] and
                 volume[i] < volume[i-1] and volume[i] < volume[i-2]):
                 # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] > 0 and filled_by[i-j] >= i and
                         (low[i] <= close[i-j])):
                     result[i] = 1
@@ -286,7 +287,7 @@ def _nsd9(open, high, low, close, volume, bar_size,
               close[i] > close[i+1] and high[i] >= high[i+1] and
                 volume[i] < volume[i-1] and volume[i] < volume[i-2]):
                 # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] < 0 and filled_by[i-j] >= i and
                         (high[i] >= close[i-j])):
                     result[i] = -1
@@ -307,7 +308,7 @@ def _nsd10(open, high, low, close, volume, bar_size, filled_by, zones):
             close[i] < close[i+1] and low[i] <= low[i+1] and
                 volume[i] < volume[i-1] and volume[i] < volume[i-2]):
                 # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] > 0 and filled_by[i-j] >= i and
                         (low[i] <= close[i-j])):
                     result[i] = 1
@@ -318,7 +319,7 @@ def _nsd10(open, high, low, close, volume, bar_size, filled_by, zones):
               close[i] > close[i+1] and high[i] >= high[i+1] and
                 volume[i] < volume[i-1] and volume[i] < volume[i-2]):
                 # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] < 0 and filled_by[i-j] >= i and
                         (high[i] >= close[i-j])):
                     result[i] = -1
@@ -339,7 +340,7 @@ def _nsd11(open, high, low, close, volume, bar_size, filled_by, zones):
             low[i] <= low[i+1] and volume[i] < volume[i-1] and
                 volume[i] < volume[i-2]):
             # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] > 0 and filled_by[i-j] >= i and
                         (low[i] <= close[i-j])):
                     result[i] = 1
@@ -350,7 +351,7 @@ def _nsd11(open, high, low, close, volume, bar_size, filled_by, zones):
               high[i] >= high[i+1] and volume[i] < volume[i-1] and
                 volume[i] < volume[i-2]):
             # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] < 0 and filled_by[i-j] >= i and
                         (high[i] >= close[i-j])):
                     result[i] = -1
@@ -371,7 +372,7 @@ def _nsd12(open, high, low, close, volume, bar_size, filled_by, zones):
             close[i] < close[i+1] and low[i] <= low[i+1] and
                 volume[i] < volume[i-1] and volume[i] < volume[i-2]):
                 # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] > 0 and filled_by[i-j] >= i and
                         (low[i] <= close[i-j])):
                     result[i] = 1
@@ -382,7 +383,7 @@ def _nsd12(open, high, low, close, volume, bar_size, filled_by, zones):
               close[i] > close[i+1] and high[i] >= high[i+1] and
                 volume[i] < volume[i-1] and volume[i] < volume[i-2]):
                 # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] < 0 and filled_by[i-j] >= i and
                         (high[i] >= close[i-j])):
                     result[i] = -1
@@ -404,7 +405,7 @@ def _nsd13(open, high, low, close, volume, bar_size,
             close[i] < close[i+1] and low[i] <= low[i+1] and
                 volume[i] < volume[i-1] and volume[i] < volume[i-2]):
                 # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] > 0 and filled_by[i-j] >= i and
                         (low[i] <= close[i-j])):
                     result[i] = 1
@@ -415,7 +416,7 @@ def _nsd13(open, high, low, close, volume, bar_size,
               close[i] > close[i+1] and high[i] >= high[i+1] and
                 volume[i] < volume[i-1] and volume[i] < volume[i-2]):
                 # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] < 0 and filled_by[i-j] >= i and
                         (high[i] >= close[i-j])):
                     result[i] = -1
@@ -436,7 +437,7 @@ def _nsd14(open, high, low, close, volume, bar_size, filled_by, zones):
             close[i] < close[i+1] and low[i] <= low[i+1] and
                 volume[i] < volume[i-1] and volume[i] < volume[i-2]):
                 # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] > 0 and filled_by[i-j] >= i and
                         (low[i] <= close[i-j])):
                     result[i] = 1
@@ -447,7 +448,7 @@ def _nsd14(open, high, low, close, volume, bar_size, filled_by, zones):
               close[i] > close[i+1] and high[i] >= high[i+1] and
                 volume[i] < volume[i-1] and volume[i] < volume[i-2]):
                 # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] < 0 and filled_by[i-j] >= i and
                         (high[i] >= close[i-j])):
                     result[i] = -1
@@ -470,7 +471,7 @@ def _nsd15(open, high, low, close, volume, bar_size, filled_by, zones):
            low[i] <= low[i+2] and volume[i] < volume[i-1] and
            volume[i] < volume[i-2]):
                 # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] > 0 and filled_by[i-j] >= i and
                         (low[i] <= close[i-j])):
                     result[i] = 1
@@ -483,7 +484,7 @@ def _nsd15(open, high, low, close, volume, bar_size, filled_by, zones):
               high[i] >= high[i+2] and volume[i] < volume[i-1] and
                 volume[i] < volume[i-2]):
                 # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] < 0 and filled_by[i-j] >= i and
                         (high[i] >= close[i-j])):
                     result[i] = -1
@@ -505,7 +506,7 @@ def _nsd16(open, high, low, close, volume, bar_size, filled_by, zones):
             low[i] <= low[i+1] and low[i] <= low[i+2] and
                 volume[i] < volume[i-1] and volume[i] < volume[i-2]):
             # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] > 0 and filled_by[i-j] >= i and
                         (low[i] <= close[i-j])):
                     result[i] = 1
@@ -518,7 +519,7 @@ def _nsd16(open, high, low, close, volume, bar_size, filled_by, zones):
               high[i] >= high[i+1] and high[i] >= high[i+2] and
                 volume[i] < volume[i-1] and volume[i] < volume[i-2]):
             # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] < 0 and filled_by[i-j] >= i and
                         (high[i] >= close[i-j])):
                     result[i] = -1
@@ -541,7 +542,7 @@ def _nsd17(open, high, low, close, volume, bar_size, bar_mid_point, filled_by, z
             low[i] <= low[i+1] and low[i] <= low[i+2] and
                 volume[i] < volume[i-1] and volume[i] < volume[i-2]):
             # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] > 0 and filled_by[i-j] >= i and
                         (low[i] <= close[i-j])):
                     result[i] = 1
@@ -554,7 +555,7 @@ def _nsd17(open, high, low, close, volume, bar_size, bar_mid_point, filled_by, z
               high[i] >= high[i+1] and high[i] >= high[i+2] and
                 volume[i] < volume[i-1] and volume[i] < volume[i-2]):
             # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] < 0 and filled_by[i-j] >= i and
                         (high[i] >= close[i-j])):
                     result[i] = -1
@@ -577,7 +578,7 @@ def _nsd18(open, high, low, close, volume, bar_size, filled_by, zones):
             low[i] <= low[i+1] and low[i] <= low[i+2] and
                 volume[i] < volume[i-1] and volume[i] < volume[i-2]):
             # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] > 0 and filled_by[i-j] >= i and
                         (low[i] <= close[i-j])):
                     result[i] = 1
@@ -590,7 +591,7 @@ def _nsd18(open, high, low, close, volume, bar_size, filled_by, zones):
               high[i] >= high[i+1] and high[i] >= high[i+2] and
                 volume[i] < volume[i-1] and volume[i] < volume[i-2]):
             # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] < 0 and filled_by[i-j] >= i and
                         (high[i] >= close[i-j])):
                     result[i] = -1
@@ -611,7 +612,7 @@ def _nsd19(open, high, low, close, volume, filled_by, zones):
             low[i] <= low[i+1] and volume[i] == volume[i-1] and
                 volume[i] < volume[i-2]):
             # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] > 0 and filled_by[i-j] >= i and
                         (low[i] <= close[i-j])):
                     result[i] = 1
@@ -622,7 +623,7 @@ def _nsd19(open, high, low, close, volume, filled_by, zones):
               high[i] >= high[i+1] and volume[i] == volume[i-1] and
                 volume[i] < volume[i-2]):
             # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] < 0 and filled_by[i-j] >= i and
                         (high[i] >= close[i-j])):
                     result[i] = -1
@@ -644,7 +645,7 @@ def _nsd20(open, high, low, close, volume, bar_size, filled_by, zones):
             low[i] <= low[i+1] and volume[i] == volume[i-1] and
                 volume[i] < volume[i-2]):
             # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] > 0 and filled_by[i-j] >= i and
                         (low[i] <= close[i-j])):
                     result[i] = 1
@@ -656,7 +657,7 @@ def _nsd20(open, high, low, close, volume, bar_size, filled_by, zones):
               high[i] >= high[i+1] and volume[i] == volume[i-1] and
                 volume[i] < volume[i-2]):
             # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] < 0 and filled_by[i-j] >= i and
                         (high[i] >= close[i-j])):
                     result[i] = -1
@@ -679,7 +680,7 @@ def _nsd21(open, high, low, close, volume, bar_size,
             low[i] <= low[i+1] and volume[i] == volume[i-1] and
                 volume[i] < volume[i-2]):
             # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] > 0 and filled_by[i-j] >= i and
                         (low[i] <= close[i-j])):
                     result[i] = 1
@@ -691,7 +692,7 @@ def _nsd21(open, high, low, close, volume, bar_size,
               high[i] >= high[i+1] and volume[i] == volume[i-1] and
                 volume[i] < volume[i-2]):
             # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] < 0 and filled_by[i-j] >= i and
                         (high[i] >= close[i-j])):
                     result[i] = -1
@@ -713,7 +714,7 @@ def _nsd22(open, high, low, close, volume, bar_size, filled_by, zones):
             low[i] <= low[i+1] and volume[i] == volume[i-1] and
                 volume[i] < volume[i-2]):
             # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] > 0 and filled_by[i-j] >= i and
                         (low[i] <= close[i-j])):
                     result[i] = 1
@@ -725,7 +726,7 @@ def _nsd22(open, high, low, close, volume, bar_size, filled_by, zones):
               high[i] >= high[i+1] and volume[i] == volume[i-1] and
                 volume[i] < volume[i-2]):
             # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] < 0 and filled_by[i-j] >= i and
                         (high[i] >= close[i-j])):
                     result[i] = -1
@@ -746,7 +747,7 @@ def _nsd23(open, high, low, close, volume, filled_by, zones):
             low[i] <= low[i+1] and volume[i] < volume[i-1] and
                 volume[i] == volume[i-2]):
             # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] > 0 and filled_by[i-j] >= i and
                         (low[i] <= close[i-j])):
                     result[i] = 1
@@ -757,7 +758,7 @@ def _nsd23(open, high, low, close, volume, filled_by, zones):
               high[i] >= high[i+1] and volume[i] < volume[i-1] and
                 volume[i] == volume[i-2]):
             # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] < 0 and filled_by[i-j] >= i and
                         (high[i] >= close[i-j])):
                     result[i] = -1
@@ -779,7 +780,7 @@ def _nsd24(open, high, low, close, volume, bar_size, filled_by, zones):
             low[i] <= low[i+1] and volume[i] < volume[i-1] and
                 volume[i] == volume[i-2]):
             # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] > 0 and filled_by[i-j] >= i and
                         (low[i] <= close[i-j])):
                     result[i] = 1
@@ -791,7 +792,7 @@ def _nsd24(open, high, low, close, volume, bar_size, filled_by, zones):
               high[i] >= high[i+1] and volume[i] < volume[i-1] and
                 volume[i] == volume[i-2]):
             # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] < 0 and filled_by[i-j] >= i and
                         (high[i] >= close[i-j])):
                     result[i] = -1
@@ -814,7 +815,7 @@ def _nsd25(open, high, low, close, volume, bar_size,
             low[i] <= low[i+1] and volume[i] < volume[i-1] and
                 volume[i] == volume[i-2]):
             # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] > 0 and filled_by[i-j] >= i and
                         (low[i] <= close[i-j])):
                     result[i] = 1
@@ -826,7 +827,7 @@ def _nsd25(open, high, low, close, volume, bar_size,
               high[i] >= high[i+1] and volume[i] < volume[i-1] and
                 volume[i] == volume[i-2]):
             # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] < 0 and filled_by[i-j] >= i and
                         (high[i] >= close[i-j])):
                     result[i] = -1
@@ -848,7 +849,7 @@ def _nsd26(open, high, low, close, volume, bar_size, filled_by, zones):
             low[i] <= low[i+1] and volume[i] < volume[i-1] and
                 volume[i] == volume[i-2]):
             # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] > 0 and filled_by[i-j] >= i and
                         (low[i] <= close[i-j])):
                     result[i] = 1
@@ -860,7 +861,7 @@ def _nsd26(open, high, low, close, volume, bar_size, filled_by, zones):
               high[i] >= high[i+1] and volume[i] < volume[i-1] and
                 volume[i] == volume[i-2]):
             # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] < 0 and filled_by[i-j] >= i and
                         (high[i] >= close[i-j])):
                     result[i] = -1
@@ -881,7 +882,7 @@ def _nsd27(open, high, low, close, volume, filled_by, zones):
             low[i] <= low[i+1] and volume[i] == volume[i-1] and
                 volume[i] == volume[i-2]):
             # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] > 0 and filled_by[i-j] >= i and
                         (low[i] <= close[i-j])):
                     result[i] = 1
@@ -892,7 +893,7 @@ def _nsd27(open, high, low, close, volume, filled_by, zones):
               high[i] >= high[i+1] and volume[i] == volume[i-1] and
                 volume[i] == volume[i-2]):
             # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] < 0 and filled_by[i-j] >= i and
                         (high[i] >= close[i-j])):
                     result[i] = -1
@@ -914,7 +915,7 @@ def _nsd28(open, high, low, close, volume, bar_size, filled_by, zones):
             low[i] <= low[i+1] and volume[i] == volume[i-1] and
                 volume[i] == volume[i-2]):
             # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] > 0 and filled_by[i-j] >= i and
                         (low[i] <= close[i-j])):
                     result[i] = 1
@@ -926,7 +927,7 @@ def _nsd28(open, high, low, close, volume, bar_size, filled_by, zones):
               high[i] >= high[i+1] and volume[i] == volume[i-1] and
                 volume[i] == volume[i-2]):
             # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] < 0 and filled_by[i-j] >= i and
                         (high[i] >= close[i-j])):
                     result[i] = -1
@@ -949,7 +950,7 @@ def _nsd29(open, high, low, close, volume, bar_size,
             low[i] <= low[i+1] and volume[i] == volume[i-1] and
                 volume[i] == volume[i-2]):
             # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] > 0 and filled_by[i-j] >= i and
                         (low[i] <= close[i-j])):
                     result[i] = 1
@@ -961,7 +962,7 @@ def _nsd29(open, high, low, close, volume, bar_size,
               high[i] >= high[i+1] and volume[i] == volume[i-1] and
                 volume[i] == volume[i-2]):
             # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] < 0 and filled_by[i-j] >= i and
                         (high[i] >= close[i-j])):
                     result[i] = -1
@@ -983,7 +984,7 @@ def _nsd30(open, high, low, close, volume, bar_size, filled_by, zones):
             low[i] <= low[i+1] and volume[i] == volume[i-1] and
                 volume[i] == volume[i-2]):
             # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] > 0 and filled_by[i-j] >= i and
                         (low[i] <= close[i-j])):
                     result[i] = 1
@@ -995,7 +996,7 @@ def _nsd30(open, high, low, close, volume, bar_size, filled_by, zones):
               high[i] >= high[i+1] and volume[i] == volume[i-1] and
                 volume[i] == volume[i-2]):
             # Look for zone
-            for j in range(1, min(65, i)):  # 64 + 1 = 65
+            for j in range(1, min(LOOK_BACK + 2, i)):  # 64 + 1 = 65
                 if (zones[i-j] < 0 and filled_by[i-j] >= i and
                         (high[i] >= close[i-j])):
                     result[i] = -1

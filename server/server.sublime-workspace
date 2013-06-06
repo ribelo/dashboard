@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"date",
+				"datetime  (class)"
+			],
+			[
 				"tm",
 				"timedelta  (class)"
 			],
@@ -20,26 +24,10 @@
 	"buffers":
 	[
 		{
-			"file": "quantum/analysis/vsa_analysis/__init__.py",
+			"file": "quantum/analysis/wrb_analysis/dcm.py",
 			"settings":
 			{
-				"buffer_size": 13308,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "quantum/analysis/wrb_analysis/toolbox.py",
-			"settings":
-			{
-				"buffer_size": 9565,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "quantum/analysis/vsa_analysis/supply_demand.py",
-			"settings":
-			{
-				"buffer_size": 44369,
+				"buffer_size": 1956,
 				"line_ending": "Unix"
 			}
 		},
@@ -47,53 +35,84 @@
 			"file": "quantum/analysis/wrb_analysis/fvb.py",
 			"settings":
 			{
-				"buffer_size": 1879,
+				"buffer_size": 1922,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "quantum/analysis/vsa_analysis/effort.py",
+			"file": "quantum/analysis/wrb_analysis/zone.py",
 			"settings":
 			{
-				"buffer_size": 6848,
+				"buffer_size": 19888,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "market/dukascopy/_DukasCopy.py",
+			"file": "quantum/analysis/vsa_analysis/supply_demand.py",
 			"settings":
 			{
-				"buffer_size": 5093,
+				"buffer_size": 45065,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "EffortD1:=If(L>ref(L,-1) and H<=ref(H,-1) and (H-L)=ref((H-L),-1) and \nO>=((H-L)*0.9)+L and C<=((H-L)*0.1)+L and C<ref(C,-1) and Mp()<ref(L,-1) and \nV>ref(V,-1) and V>VolAve and V<=2*VolAve and WRB=1,1,0); ",
+			"file": "quantum/analysis/wrb_analysis/toolbox.py",
 			"settings":
 			{
-				"buffer_size": 206,
-				"line_ending": "Unix",
-				"name": "EffortD1:=If(L>ref(L,-1) and H<=ref(H,-1) and (H-L"
+				"buffer_size": 9577,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "config.py",
+			"settings":
+			{
+				"buffer_size": 838,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/huxley/.config/sublime-text-2/Packages/Pretty JSON/Pretty JSON.sublime-settings",
+			"settings":
+			{
+				"buffer_size": 118,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/huxley/.config/sublime-text-2/Packages/Default/Default (Linux).sublime-keymap",
+			"settings":
+			{
+				"buffer_size": 31027,
+				"line_ending": "Unix"
 			}
 		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 76.0,
+		"height": 54.0,
 		"selected_items":
 		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
 			[
 				"remov",
 				"Package Control: Remove Package"
 			],
 			[
-				"remo",
-				"Package Control: Remove Package"
+				"json",
+				"Pretty JSON: Reformat (Pretty Print) JSON"
 			],
 			[
-				"install",
+				"instal",
 				"Package Control: Install Package"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
 			],
 			[
 				"make",
@@ -108,7 +127,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 435.0
+		"width": 588.0
 	},
 	"console":
 	{
@@ -125,38 +144,69 @@
 	},
 	"file_history":
 	[
-		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/wrb_analysis/__init__.py",
+		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/__init__.py",
+		"/home/huxley/Dropbox/code/Dashboard/server/__init__.py",
+		"/home/huxley/Dropbox/code/Dashboard/server/quantum/__init__.py",
+		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/wrb_analysis/zone.py",
+		"/home/huxley/Dropbox/code/Dashboard/server/market/mtgox/config.py",
+		"/home/huxley/Dropbox/code/Dashboard/server/market/netfounds/api.py",
+		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/wrb_analysis/dcm.py",
+		"/home/huxley/Dropbox/code/Dashboard/server/market/__init__.py",
+		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/wrb_analysis/fvb.py",
+		"/home/huxley/.config/sublime-text-2/Packages/Pretty JSON/PrettyJson.py",
+		"/home/huxley/.config/sublime-text-2/Packages/PrettyPrint/PrettyPrint.py",
+		"/home/huxley/.config/sublime-text-2/Packages/PrettyPrint/Default.sublime-commands",
+		"/home/huxley/.config/sublime-text-2/Packages/Pretty JSON/Pretty JSON.sublime-settings",
+		"/home/huxley/.config/sublime-text-2/Packages/Pretty JSON/Default.sublime-commands",
+		"/home/huxley/.config/sublime-text-2/Packages/PrettyPrint/Default (Linux).sublime-keymap",
+		"/home/huxley/.config/sublime-text-2/Packages/PrettyPrint/PrettyPrint.sublime-settings",
+		"/home/huxley/.config/sublime-text-2/Packages/PrettyPrint/package-metadata.json",
+		"/home/huxley/.config/sublime-text-2/Packages/PrettyDict/Default (Linux).sublime-keymap",
+		"/home/huxley/.config/sublime-text-2/Packages/PreettyDict/Main.sublime-menu",
+		"/home/huxley/.config/sublime-text-2/Packages/PreettyDict/Default (Windows).sublime-keymap",
+		"/home/huxley/.config/sublime-text-2/Packages/PreettyDict/Default (OSX).sublime-keymap",
+		"/home/huxley/.config/sublime-text-2/Packages/PreettyDict/Default (Linux).sublime-keymap",
+		"/home/huxley/.config/sublime-text-2/Packages/PreettyDict/Default.sublime-commands",
+		"/home/huxley/.config/sublime-text-2/Packages/PreettyDict/tests/tests.py",
 		"/home/huxley/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
+		"/home/huxley/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+		"/home/huxley/.config/sublime-text-2/Packages/Case Conversion/Default (Linux).sublime-keymap",
+		"/home/huxley/Dropbox/code/Dashboard/server/market/dukascopy/config.py",
+		"/home/huxley/Dropbox/code/Dashboard/server/market/dukascopy/io.py",
+		"/home/huxley/Dropbox/code/Dashboard/server/market/dukascopy/api.py",
+		"/home/huxley/Dropbox/code/Dashboard/server/market/dukascopy/_DukasCopy.py",
+		"/home/huxley/Dropbox/code/Dashboard/server/market/netfounds/io.py",
+		"/home/huxley/Dropbox/code/Dashboard/server/market/netfounds/config.py",
+		"/home/huxley/Dropbox/code/Dashboard/server/market/mtgox/io.py",
+		"/home/huxley/Dropbox/code/Dashboard/server/market/mtgox/store.py",
+		"/home/huxley/Dropbox/github/numba/numba/typesystem/numbatypes.py",
+		"/home/huxley/Dropbox/github/numba/numba/typesystem/types.py",
+		"/home/huxley/Dropbox/code/Dashboard/server/market/netfounds/__init__.py",
+		"/home/huxley/Dropbox/code/Dashboard/server/market/dukascopy/__init__.py",
+		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/vsa_analysis/effort.py",
+		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/vsa_analysis/supply_demand.py",
+		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/wrb_analysis/toolbox.py",
+		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/vsa_analysis/__init__.py",
+		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/wrb_analysis/__init__.py",
+		"/home/huxley/Dropbox/code/Dashboard/server/redis_start.py",
+		"/home/huxley/Dropbox/code/Dashboard/server/redis/redis.conf",
+		"/home/huxley/Dropbox/code/Dashboard/server/tool/deepthroat.py",
+		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/candle_analysis/base.py",
 		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/wrb_analysis/base.py",
 		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/candle_analysis/__init__.py",
-		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/candle_analysis/base.py",
-		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/wrb_analysis/zone.py",
-		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/vsa_analysis/supply_demand.py",
-		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/wrb_analysis/fvb.py",
 		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/wrb_analysis/ajctr.py",
-		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/vsa_analysis/effort.py",
 		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/vsa_analysis/no_demand.py",
 		"/home/huxley/.config/sublime-text-2/Packages/Default/Default (Linux).sublime-keymap",
 		"/home/huxley/.config/sublime-text-2/Packages/Emmet/Default (Linux).sublime-keymap",
 		"/home/huxley/.config/sublime-text-2/Packages/CoffeeComplete Plus (Autocompletion)/Default (Linux).sublime-keymap",
 		"/home/huxley/.config/sublime-text-2/Packages/CoffeeCompile/Keymaps/Default (Linux).sublime-keymap",
 		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/vsa_analysis/no_supply.py",
-		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/vsa_analysis/__init__.py",
 		"/home/huxley/.config/sublime-text-2/Packages/Origami/Default (Linux).sublime-keymap",
 		"/home/huxley/Dropbox/code/Dashboard/client/app/data/dashboard.json",
-		"/home/huxley/Dropbox/code/Dashboard/server/market/mtgox/store.py",
-		"/home/huxley/Dropbox/code/Dashboard/server/market/mtgox/config.py",
 		"/home/huxley/Dropbox/code/Dashboard/server/market/mtgox/api.py",
-		"/home/huxley/Dropbox/code/Dashboard/server/market/mtgox/io.py",
-		"/home/huxley/Dropbox/code/Dashboard/server/market/netfounds/config.py",
-		"/home/huxley/Dropbox/code/Dashboard/server/market/netfounds/io.py",
-		"/home/huxley/Dropbox/code/Dashboard/server/market/netfounds/api.py",
-		"/home/huxley/Dropbox/code/Dashboard/server/market/netfounds/__init__.py",
 		"/home/huxley/Dropbox/code/Dashboard/server/market/netfounds/_NetFounds.py",
 		"/home/huxley/Dropbox/code/Dashboard/server/quantum/temp.py",
-		"/home/huxley/Dropbox/code/Dashboard/server/tool/deepthroat.py",
 		"/home/huxley/Dropbox/code/Dashboard/server/market/mtgox/__init__.py",
-		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/wrb_analysis/toolbox.py",
 		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/vsa_analysis/volume.py",
 		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/vsa_analysis/no_deman.py",
 		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/candle_analysis/candle/__init__.py",
@@ -174,7 +224,6 @@
 		"/home/huxley/.config/sublime-text-2/Packages/Python PEP8 Autoformat/Default (Linux).sublime-keymap",
 		"/home/huxley/.config/sublime-text-2/Packages/User/python_docstring.sublime-snippet",
 		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis.py",
-		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/__init__.py",
 		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/wrb_analysis/wrb/__init__.py",
 		"/home/huxley/Dropbox/code/Dashboard/server/quantum/indicator/wrb_analysis/ajctr/__init__.py",
 		"/home/huxley/Dropbox/code/Dashboard/server/quantum/indicator/candle_analysis/__init__.py",
@@ -186,7 +235,6 @@
 		"/home/huxley/Dropbox/code/Dashboard/server/quantum/indicator/candle/__init__.py",
 		"/home/huxley/.config/sublime-text-2/Packages/User/NumbaJit.sublime-snippet",
 		"/home/huxley/.config/sublime-text-2/Packages/Python/for.sublime-snippet",
-		"/home/huxley/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
 		"/home/huxley/Dropbox/code/Dashboard/server/quantum/indicator/wrb_analysis/dcm/__init__.py",
 		"/home/huxley/.config/sublime-text-2/Packages/User/bla.sublime-snippet",
 		"/home/huxley/Dropbox/code/Dashboard/server/quantum/indicator/wrb/__init__.py",
@@ -213,9 +261,33 @@
 	},
 	"find_state":
 	{
-		"case_sensitive": true,
+		"case_sensitive": false,
 		"find_history":
 		[
+			"from tool import deepthroat as dt",
+			"min(65, i)):  # 64 + 1 = 65",
+			"68, -1):  # 4 + 64 = 68",
+			"}\n",
+			"                ",
+			"\"",
+			"'",
+			"spaces",
+			"tabs",
+			"case",
+			"title",
+			"None",
+			"date",
+			"parse_candle",
+			"datetime",
+			"imap",
+			"get",
+			"dropbox",
+			"path",
+			"None",
+			"j]",
+			"open",
+			"wrb",
+			"dir",
 			"low[i] > low[i-1]",
 			"wrb[i]):",
 			"int64",
@@ -319,31 +391,7 @@
 			"[j",
 			"range(i - 1, i - 65, -1):  # 64 + 1 = 65",
 			"range(i - 2, i - 66, -1):",
-			"range(i - 2, i - 66, -1)",
-			"result[i] = 0",
-			"bar_size",
-			"bar ",
-			"bar",
-			"df['zones'])",
-			"zones[j] and",
-			"int64[:], int64[:], int64[:]",
-			"zones[j] and",
-			"zones):",
-			"int64[:]))",
-			"filled_by",
-			"tid",
-			"last_date",
-			"wrb",
-			"zones",
-			"base",
-			"dir",
-			"close",
-			"netfoundsParse",
-			"last_tid",
-			"days_download",
-			"io.",
-			"bar_size[i]*0.3",
-			"bar_size[i]*0.1"
+			"range(i - 2, i - 66, -1)"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -351,6 +399,8 @@
 		"regex": false,
 		"replace_history":
 		[
+			"from server.tool import deepthroat as dt",
+			"'",
 			"low[i] + (high[i] - low[i])*.8",
 			"low[i] + (high[i] - low[i])*.2",
 			"low[i] + (high[i] - low[i])*.1",
@@ -476,9 +526,7 @@
 			"volatility_expand_before",
 			"volatility_expand_after",
 			"volatility_week_expand_before",
-			"volatility_week_expand_after",
-			"is_bear_swing_point",
-			"is_bull_swing_point"
+			"volatility_week_expand_after"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -489,23 +537,23 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 4,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "quantum/analysis/vsa_analysis/__init__.py",
+					"file": "quantum/analysis/wrb_analysis/dcm.py",
 					"settings":
 					{
-						"buffer_size": 13308,
+						"buffer_size": 1956,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								826,
-								826
+								146,
+								146
 							]
 						],
 						"settings":
@@ -577,10 +625,6 @@
 							[
 							],
 							"pyflakes_ignore_import_*": true,
-							"rulers":
-							[
-								80
-							],
 							"sublimelinter": true,
 							"sublimelinter_delay": 2,
 							"sublimelinter_disable":
@@ -608,25 +652,25 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2717.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "quantum/analysis/wrb_analysis/toolbox.py",
+					"file": "quantum/analysis/wrb_analysis/fvb.py",
 					"settings":
 					{
-						"buffer_size": 9565,
+						"buffer_size": 1922,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								9306,
-								9306
+								113,
+								113
 							]
 						],
 						"settings":
@@ -725,141 +769,25 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 4128.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "quantum/analysis/vsa_analysis/supply_demand.py",
+					"file": "quantum/analysis/wrb_analysis/zone.py",
 					"settings":
 					{
-						"buffer_size": 44369,
+						"buffer_size": 19888,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								194,
-								194
-							],
-							[
-								1563,
-								1563
-							],
-							[
-								2982,
-								2982
-							],
-							[
-								4405,
-								4405
-							],
-							[
-								5908,
-								5908
-							],
-							[
-								7330,
-								7330
-							],
-							[
-								8637,
-								8637
-							],
-							[
-								10020,
-								10020
-							],
-							[
-								11450,
-								11450
-							],
-							[
-								12935,
-								12935
-							],
-							[
-								14366,
-								14366
-							],
-							[
-								15742,
-								15742
-							],
-							[
-								17173,
-								17173
-							],
-							[
-								18660,
-								18660
-							],
-							[
-								20090,
-								20090
-							],
-							[
-								21715,
-								21715
-							],
-							[
-								23392,
-								23392
-							],
-							[
-								25114,
-								25114
-							],
-							[
-								26791,
-								26791
-							],
-							[
-								28128,
-								28128
-							],
-							[
-								29625,
-								29625
-							],
-							[
-								31178,
-								31178
-							],
-							[
-								32675,
-								32675
-							],
-							[
-								34012,
-								34012
-							],
-							[
-								35509,
-								35509
-							],
-							[
-								37062,
-								37062
-							],
-							[
-								38559,
-								38559
-							],
-							[
-								39898,
-								39898
-							],
-							[
-								41397,
-								41397
-							],
-							[
-								42952,
-								42952
+								167,
+								167
 							]
 						],
 						"settings":
@@ -965,18 +893,18 @@
 				},
 				{
 					"buffer": 3,
-					"file": "quantum/analysis/wrb_analysis/fvb.py",
+					"file": "quantum/analysis/vsa_analysis/supply_demand.py",
 					"settings":
 					{
-						"buffer_size": 1879,
+						"buffer_size": 45065,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1674,
-								1674
+								149,
+								149
 							]
 						],
 						"settings":
@@ -1082,139 +1010,18 @@
 				},
 				{
 					"buffer": 4,
-					"file": "quantum/analysis/vsa_analysis/effort.py",
+					"file": "quantum/analysis/wrb_analysis/toolbox.py",
 					"settings":
 					{
-						"buffer_size": 6848,
+						"buffer_size": 9577,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								968,
-								968
-							]
-						],
-						"settings":
-						{
-							"annotations":
-							[
-								"TODO",
-								"README",
-								"FIXME"
-							],
-							"csslint_options":
-							{
-								"adjoining-classes": "warning",
-								"box-model": true,
-								"box-sizing": "warning",
-								"compatible-vendor-prefixes": "warning",
-								"display-property-grouping": true,
-								"duplicate-background-images": "warning",
-								"duplicate-properties": true,
-								"empty-rules": true,
-								"errors": true,
-								"fallback-colors": "warning",
-								"floats": "warning",
-								"font-faces": "warning",
-								"font-sizes": "warning",
-								"gradients": "warning",
-								"ids": "warning",
-								"import": "warning",
-								"important": "warning",
-								"known-properties": true,
-								"outline-none": "warning",
-								"overqualified-elements": "warning",
-								"qualified-headings": "warning",
-								"regex-selectors": "warning",
-								"rules-count": "warning",
-								"shorthand": "warning",
-								"star-property-hack": "warning",
-								"text-indent": "warning",
-								"underscore-property-hack": "warning",
-								"unique-headings": "warning",
-								"universal-selector": "warning",
-								"vendor-prefix": true,
-								"zero-units": "warning"
-							},
-							"gjslint_ignore":
-							[
-								110
-							],
-							"gjslint_options":
-							[
-							],
-							"javascript_linter": "jshint",
-							"jshint_options":
-							{
-								"browser": true,
-								"evil": true,
-								"regexdash": true,
-								"sub": true,
-								"trailing": true,
-								"wsh": true
-							},
-							"pep8": true,
-							"pep8_ignore":
-							[
-								"E501"
-							],
-							"perl_linter": "perlcritic",
-							"pyflakes_ignore":
-							[
-							],
-							"pyflakes_ignore_import_*": true,
-							"rulers":
-							[
-								80
-							],
-							"sublimelinter": true,
-							"sublimelinter_delay": 2,
-							"sublimelinter_disable":
-							[
-							],
-							"sublimelinter_executable_map":
-							{
-							},
-							"sublimelinter_fill_outlines": false,
-							"sublimelinter_gutter_marks": true,
-							"sublimelinter_gutter_marks_theme": "simple",
-							"sublimelinter_mark_style": "none",
-							"sublimelinter_notes": false,
-							"sublimelinter_objj_check_ascii": false,
-							"sublimelinter_popup_errors_on_save": false,
-							"sublimelinter_syntax_map":
-							{
-								"C++": "c",
-								"Python Django": "python",
-								"Ruby on Rails": "ruby"
-							},
-							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "market/dukascopy/_DukasCopy.py",
-					"settings":
-					{
-						"buffer_size": 5093,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								322,
-								322
+								94,
+								94
 							]
 						],
 						"settings":
@@ -1325,27 +1132,348 @@
 			"sheets":
 			[
 				{
-					"buffer": 6,
+					"buffer": 5,
+					"file": "config.py",
 					"settings":
 					{
-						"buffer_size": 206,
+						"buffer_size": 838,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								149,
-								149
+								23,
+								23
 							]
 						],
 						"settings":
 						{
-							"auto_name": "EffortD1:=If(L>ref(L,-1) and H<=ref(H,-1) and (H-L",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "simple",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/home/huxley/.config/sublime-text-2/Packages/Pretty JSON/Pretty JSON.sublime-settings",
+					"settings":
+					{
+						"buffer_size": 118,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								88,
+								88
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "simple",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/AAAPackageDev/Support/Sublime Settings.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/home/huxley/.config/sublime-text-2/Packages/Default/Default (Linux).sublime-keymap",
+					"settings":
+					{
+						"buffer_size": 31027,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								26549,
+								26549
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "simple",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/AAAPackageDev/Support/Sublime Key Map.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 8487.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1381,7 +1509,7 @@
 		"cols":
 		[
 			0.0,
-			0.470261437908,
+			0.470915032679,
 			1.0
 		],
 		"rows":

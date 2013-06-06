@@ -1,6 +1,6 @@
 from numba import double, int64, int8, bool_
 from numba.decorators import jit
-import tool.deepthroat as dt
+from server.tool import deepthroat as dt
 
 
 @jit(bool_(int64, int64, double[:], double[:]), nopython=True)

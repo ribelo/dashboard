@@ -41,7 +41,7 @@ def request_quote(from_date, currency=config.currency):
 
 def save_quote(quotes, currency=config.currency, path=config.data_path):
     if not os.path.exists(path):
-        os.makedirs(d)
+        os.makedirs(path)
     try:
         quotes.save(path + '/{}.dat'.format(currency))
     except Exception as e:

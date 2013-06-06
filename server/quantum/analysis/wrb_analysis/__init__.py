@@ -6,7 +6,6 @@ from . import zone
 from . import fvb
 
 
-
 def calculate_base(df, gap=True, reaction=True, reaction_break=True,
                    wrb=True, wrb_hg=True, *args, **kwds):
 
