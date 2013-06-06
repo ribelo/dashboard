@@ -1,7 +1,9 @@
+#-*- coding: utf-8-*-
 import os
 import struct
 import lzma
-import datetime
+from datetime import datetime, timedelta
+import urllib
 import dateutil
 import pytz
 import json
@@ -57,8 +59,7 @@ def parse_candle(bi5, date, point=5):
         price_low = s.unpack(content[idx + 12:idx + 16])[0] / 10 ** point
         price_close = s.unpack(content[idx + 16:idx + 20])[0] / 10 ** point
         volume = s.unpack(content[idx + 20:idx + 24])[0]
-        last_candle = date.astimezone(
-            pytz.utc) + datetime.timedelta(seconds=time_delta)
+        last_candle = date.astimezone(pytz.utc) + timedelta(seconds=time_delta)
         try:
             quote[last_candle]
         except KeyError:
@@ -94,8 +95,7 @@ def parse_ticks(bi5, date, point=5):
         bid = s.unpack(content[idx + 8:idx + 12])[0] / 10 ** point
         # ask_vol = s.unpack(content[idx + 12:idx + 16])[0] / 10 ** point
         bid_vol = s.unpack(content[idx + 16:idx + 20])[0] / 10 ** point
-        last_time = date.astimezone(
-            pytz.utc) + datetime.timedelta(milliseconds=time_delta)
+        last_time = date.astimezone(pytz.utc) + timedelta(milliseconds=time_delta)
         if price_open == 0:
             price_open = bid
         if bid > price_high:
@@ -115,7 +115,7 @@ def parse_ticks(bi5, date, point=5):
             # price_open, price_high, price_low, price_close, volume = 0,
             # float('-inf'), float('inf'), 0, 0
             price_open, price_high, price_low, price_close, volume = price_close, price_close, price_close, price_close, 0
-            last_candle += datetime.timedelta(seconds=60)
+            last_candle += timedelta(seconds=60)
 
         idx += 20
     return quote
@@ -123,7 +123,7 @@ def parse_ticks(bi5, date, point=5):
 
 def download_csv(cross, from_date, to_date, path):
     date = min([from_date, to_date])
-    utcnow = datetime.datetime.utcnow()
+    utcnow = datetime.utcnow()
     while date.date() < to_date.date():
         if not _csv_exist(cross, date, path):
             if date.date() < utcnow.date():
@@ -134,4 +134,4 @@ def download_csv(cross, from_date, to_date, path):
                 bi5 = _get_ticks_bi5(cross, date)
                 quote = _parse_ticks(bi5, date)
                 _save_quote(quote, cross, date, path)
-        date += datetime.timedelta(days=1)
+        date += timedelta(days=1)
