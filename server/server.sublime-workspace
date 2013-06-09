@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"ne",
+				"NETFOUNDS_QUOTES_PATH  (variable)"
+			],
+			[
+				"MT",
+				"MTGOX_QUOTES_PATH  (variable)"
+			],
+			[
 				"date",
 				"datetime  (class)"
 			],
@@ -24,66 +32,50 @@
 	"buffers":
 	[
 		{
-			"file": "quantum/analysis/wrb_analysis/dcm.py",
+			"file": "start.py",
 			"settings":
 			{
-				"buffer_size": 1956,
+				"buffer_size": 275,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "quantum/analysis/wrb_analysis/fvb.py",
+			"file": "/home/huxley/Dropbox/code/Dashboard/client/app/__init__.py",
 			"settings":
 			{
-				"buffer_size": 1922,
+				"buffer_size": 170,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "quantum/analysis/wrb_analysis/zone.py",
+			"file": "__init__.py",
 			"settings":
 			{
-				"buffer_size": 19888,
+				"buffer_size": 13,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "quantum/analysis/vsa_analysis/supply_demand.py",
+			"file": "app.config.py",
 			"settings":
 			{
-				"buffer_size": 45065,
+				"buffer_size": 858,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "quantum/analysis/wrb_analysis/toolbox.py",
+			"file": "quantum/__init__.py",
 			"settings":
 			{
-				"buffer_size": 9577,
+				"buffer_size": 43,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "config.py",
+			"file": "market/__init__.py",
 			"settings":
 			{
-				"buffer_size": 838,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/huxley/.config/sublime-text-2/Packages/Pretty JSON/Pretty JSON.sublime-settings",
-			"settings":
-			{
-				"buffer_size": 118,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/huxley/.config/sublime-text-2/Packages/Default/Default (Linux).sublime-keymap",
-			"settings":
-			{
-				"buffer_size": 31027,
+				"buffer_size": 112,
 				"line_ending": "Unix"
 			}
 		}
@@ -91,7 +83,7 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 54.0,
+		"height": 53.0,
 		"selected_items":
 		[
 			[
@@ -101,6 +93,10 @@
 			[
 				"remov",
 				"Package Control: Remove Package"
+			],
+			[
+				"githu",
+				"Github: Open File"
 			],
 			[
 				"json",
@@ -127,7 +123,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 588.0
+		"width": 386.0
 	},
 	"console":
 	{
@@ -144,48 +140,56 @@
 	},
 	"file_history":
 	[
-		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/__init__.py",
-		"/home/huxley/Dropbox/code/Dashboard/server/__init__.py",
-		"/home/huxley/Dropbox/code/Dashboard/server/quantum/__init__.py",
-		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/wrb_analysis/zone.py",
-		"/home/huxley/Dropbox/code/Dashboard/server/market/mtgox/config.py",
-		"/home/huxley/Dropbox/code/Dashboard/server/market/netfounds/api.py",
-		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/wrb_analysis/dcm.py",
-		"/home/huxley/Dropbox/code/Dashboard/server/market/__init__.py",
-		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/wrb_analysis/fvb.py",
-		"/home/huxley/.config/sublime-text-2/Packages/Pretty JSON/PrettyJson.py",
-		"/home/huxley/.config/sublime-text-2/Packages/PrettyPrint/PrettyPrint.py",
-		"/home/huxley/.config/sublime-text-2/Packages/PrettyPrint/Default.sublime-commands",
-		"/home/huxley/.config/sublime-text-2/Packages/Pretty JSON/Pretty JSON.sublime-settings",
-		"/home/huxley/.config/sublime-text-2/Packages/Pretty JSON/Default.sublime-commands",
-		"/home/huxley/.config/sublime-text-2/Packages/PrettyPrint/Default (Linux).sublime-keymap",
-		"/home/huxley/.config/sublime-text-2/Packages/PrettyPrint/PrettyPrint.sublime-settings",
-		"/home/huxley/.config/sublime-text-2/Packages/PrettyPrint/package-metadata.json",
-		"/home/huxley/.config/sublime-text-2/Packages/PrettyDict/Default (Linux).sublime-keymap",
-		"/home/huxley/.config/sublime-text-2/Packages/PreettyDict/Main.sublime-menu",
-		"/home/huxley/.config/sublime-text-2/Packages/PreettyDict/Default (Windows).sublime-keymap",
-		"/home/huxley/.config/sublime-text-2/Packages/PreettyDict/Default (OSX).sublime-keymap",
-		"/home/huxley/.config/sublime-text-2/Packages/PreettyDict/Default (Linux).sublime-keymap",
-		"/home/huxley/.config/sublime-text-2/Packages/PreettyDict/Default.sublime-commands",
-		"/home/huxley/.config/sublime-text-2/Packages/PreettyDict/tests/tests.py",
-		"/home/huxley/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
-		"/home/huxley/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
-		"/home/huxley/.config/sublime-text-2/Packages/Case Conversion/Default (Linux).sublime-keymap",
-		"/home/huxley/Dropbox/code/Dashboard/server/market/dukascopy/config.py",
-		"/home/huxley/Dropbox/code/Dashboard/server/market/dukascopy/io.py",
 		"/home/huxley/Dropbox/code/Dashboard/server/market/dukascopy/api.py",
-		"/home/huxley/Dropbox/code/Dashboard/server/market/dukascopy/_DukasCopy.py",
-		"/home/huxley/Dropbox/code/Dashboard/server/market/netfounds/io.py",
-		"/home/huxley/Dropbox/code/Dashboard/server/market/netfounds/config.py",
+		"/home/huxley/Dropbox/code/Dashboard/server/market/dukascopy/io.py",
+		"/home/huxley/Dropbox/code/Dashboard/server/market/mtgox/api.py",
 		"/home/huxley/Dropbox/code/Dashboard/server/market/mtgox/io.py",
 		"/home/huxley/Dropbox/code/Dashboard/server/market/mtgox/store.py",
+		"/home/huxley/Dropbox/code/Dashboard/server/market/netfounds/api.py",
+		"/home/huxley/Dropbox/code/Dashboard/server/market/netfounds/io.py",
+		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/vsa_analysis/supply_demand.py",
+		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/wrb_analysis/fvb.py",
+		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/wrb_analysis/zone.py",
+		"/home/huxley/Dropbox/code/Dashboard/client/app/views.py",
+		"/home/huxley/Dropbox/code/Dashboard/client/app/__init__.py",
+		"/home/huxley/Dropbox/code/Dashboard/client/run.py",
+		"/home/huxley/Dropbox/code/Dashboard/server/market/__init__.py",
+		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/__init__.py",
+		"/home/huxley/Dropbox/code/Dashboard/server/quantum/__init__.py",
+		"/home/huxley/Dropbox/code/Dashboard/server/market/store.py",
+		"/home/huxley/Dropbox/code/Dashboard/server/market/mtgox/__init__.py",
+		"/home/huxley/.app.config/sublime-text-2/Packages/Github Tools/README.md",
+		"/home/huxley/Dropbox/code/Dashboard/server/market/mtgox/app.config.py",
+		"/home/huxley/.app.config/sublime-text-2/Packages/Default/Default (Linux).sublime-keymap",
+		"/home/huxley/.app.config/sublime-text-2/Packages/Pretty JSON/Pretty JSON.sublime-settings",
+		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/wrb_analysis/toolbox.py",
+		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/wrb_analysis/dcm.py",
+		"/home/huxley/Dropbox/code/Dashboard/server/__init__.py",
+		"/home/huxley/.app.config/sublime-text-2/Packages/Pretty JSON/PrettyJson.py",
+		"/home/huxley/.app.config/sublime-text-2/Packages/PrettyPrint/PrettyPrint.py",
+		"/home/huxley/.app.config/sublime-text-2/Packages/PrettyPrint/Default.sublime-commands",
+		"/home/huxley/.app.config/sublime-text-2/Packages/Pretty JSON/Default.sublime-commands",
+		"/home/huxley/.app.config/sublime-text-2/Packages/PrettyPrint/Default (Linux).sublime-keymap",
+		"/home/huxley/.app.config/sublime-text-2/Packages/PrettyPrint/PrettyPrint.sublime-settings",
+		"/home/huxley/.app.config/sublime-text-2/Packages/PrettyPrint/package-metadata.json",
+		"/home/huxley/.app.config/sublime-text-2/Packages/PrettyDict/Default (Linux).sublime-keymap",
+		"/home/huxley/.app.config/sublime-text-2/Packages/PreettyDict/Main.sublime-menu",
+		"/home/huxley/.app.config/sublime-text-2/Packages/PreettyDict/Default (Windows).sublime-keymap",
+		"/home/huxley/.app.config/sublime-text-2/Packages/PreettyDict/Default (OSX).sublime-keymap",
+		"/home/huxley/.app.config/sublime-text-2/Packages/PreettyDict/Default (Linux).sublime-keymap",
+		"/home/huxley/.app.config/sublime-text-2/Packages/PreettyDict/Default.sublime-commands",
+		"/home/huxley/.app.config/sublime-text-2/Packages/PreettyDict/tests/tests.py",
+		"/home/huxley/.app.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
+		"/home/huxley/.app.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+		"/home/huxley/.app.config/sublime-text-2/Packages/Case Conversion/Default (Linux).sublime-keymap",
+		"/home/huxley/Dropbox/code/Dashboard/server/market/dukascopy/app.config.py",
+		"/home/huxley/Dropbox/code/Dashboard/server/market/dukascopy/_DukasCopy.py",
+		"/home/huxley/Dropbox/code/Dashboard/server/market/netfounds/app.config.py",
 		"/home/huxley/Dropbox/github/numba/numba/typesystem/numbatypes.py",
 		"/home/huxley/Dropbox/github/numba/numba/typesystem/types.py",
 		"/home/huxley/Dropbox/code/Dashboard/server/market/netfounds/__init__.py",
 		"/home/huxley/Dropbox/code/Dashboard/server/market/dukascopy/__init__.py",
 		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/vsa_analysis/effort.py",
-		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/vsa_analysis/supply_demand.py",
-		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/wrb_analysis/toolbox.py",
 		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/vsa_analysis/__init__.py",
 		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/wrb_analysis/__init__.py",
 		"/home/huxley/Dropbox/code/Dashboard/server/redis_start.py",
@@ -196,33 +200,28 @@
 		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/candle_analysis/__init__.py",
 		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/wrb_analysis/ajctr.py",
 		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/vsa_analysis/no_demand.py",
-		"/home/huxley/.config/sublime-text-2/Packages/Default/Default (Linux).sublime-keymap",
-		"/home/huxley/.config/sublime-text-2/Packages/Emmet/Default (Linux).sublime-keymap",
-		"/home/huxley/.config/sublime-text-2/Packages/CoffeeComplete Plus (Autocompletion)/Default (Linux).sublime-keymap",
-		"/home/huxley/.config/sublime-text-2/Packages/CoffeeCompile/Keymaps/Default (Linux).sublime-keymap",
+		"/home/huxley/.app.config/sublime-text-2/Packages/Emmet/Default (Linux).sublime-keymap",
+		"/home/huxley/.app.config/sublime-text-2/Packages/CoffeeComplete Plus (Autocompletion)/Default (Linux).sublime-keymap",
+		"/home/huxley/.app.config/sublime-text-2/Packages/CoffeeCompile/Keymaps/Default (Linux).sublime-keymap",
 		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/vsa_analysis/no_supply.py",
-		"/home/huxley/.config/sublime-text-2/Packages/Origami/Default (Linux).sublime-keymap",
+		"/home/huxley/.app.config/sublime-text-2/Packages/Origami/Default (Linux).sublime-keymap",
 		"/home/huxley/Dropbox/code/Dashboard/client/app/data/dashboard.json",
-		"/home/huxley/Dropbox/code/Dashboard/server/market/mtgox/api.py",
 		"/home/huxley/Dropbox/code/Dashboard/server/market/netfounds/_NetFounds.py",
 		"/home/huxley/Dropbox/code/Dashboard/server/quantum/temp.py",
-		"/home/huxley/Dropbox/code/Dashboard/server/market/mtgox/__init__.py",
 		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/vsa_analysis/volume.py",
 		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/vsa_analysis/no_deman.py",
 		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/candle_analysis/candle/__init__.py",
 		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/wrb_analysis/fvb/__init__.py",
 		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/wrb_analysis/zone/__init__.py",
-		"/home/huxley/.config/sublime-text-2/Packages/SublimeCodeIntel/Base File.sublime-settings",
-		"/home/huxley/.config/sublime-text-2/Packages/AutoPEP8/AutoPep8.sublime-settings",
+		"/home/huxley/.app.config/sublime-text-2/Packages/SublimeCodeIntel/Base File.sublime-settings",
+		"/home/huxley/.app.config/sublime-text-2/Packages/AutoPEP8/AutoPep8.sublime-settings",
 		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/wrb_analysis/ajctr/__init__.py",
 		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/wrb_analysis/base/__init__.py",
-		"/home/huxley/Dropbox/code/Dashboard/client/app/views.py",
-		"/home/huxley/Dropbox/code/Dashboard/client/run.py",
-		"/home/huxley/.config/sublime-text-2/Packages/AutoPEP8/Default (Linux).sublime-keymap",
-		"/home/huxley/.config/sublime-text-2/Packages/User/pep8_autoformat.sublime-settings",
-		"/home/huxley/.config/sublime-text-2/Packages/Python PEP8 Autoformat/pep8_autoformat.sublime-settings",
-		"/home/huxley/.config/sublime-text-2/Packages/Python PEP8 Autoformat/Default (Linux).sublime-keymap",
-		"/home/huxley/.config/sublime-text-2/Packages/User/python_docstring.sublime-snippet",
+		"/home/huxley/.app.config/sublime-text-2/Packages/AutoPEP8/Default (Linux).sublime-keymap",
+		"/home/huxley/.app.config/sublime-text-2/Packages/User/pep8_autoformat.sublime-settings",
+		"/home/huxley/.app.config/sublime-text-2/Packages/Python PEP8 Autoformat/pep8_autoformat.sublime-settings",
+		"/home/huxley/.app.config/sublime-text-2/Packages/Python PEP8 Autoformat/Default (Linux).sublime-keymap",
+		"/home/huxley/.app.config/sublime-text-2/Packages/User/python_docstring.sublime-snippet",
 		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis.py",
 		"/home/huxley/Dropbox/code/Dashboard/server/quantum/analysis/wrb_analysis/wrb/__init__.py",
 		"/home/huxley/Dropbox/code/Dashboard/server/quantum/indicator/wrb_analysis/ajctr/__init__.py",
@@ -233,18 +232,18 @@
 		"/home/huxley/Dropbox/code/Dashboard/server/quantum/indicator/wrb_analysis/__init__.py",
 		"/home/huxley/Dropbox/code/Dashboard/server/quantum/calculate.py",
 		"/home/huxley/Dropbox/code/Dashboard/server/quantum/indicator/candle/__init__.py",
-		"/home/huxley/.config/sublime-text-2/Packages/User/NumbaJit.sublime-snippet",
-		"/home/huxley/.config/sublime-text-2/Packages/Python/for.sublime-snippet",
+		"/home/huxley/.app.config/sublime-text-2/Packages/User/NumbaJit.sublime-snippet",
+		"/home/huxley/.app.config/sublime-text-2/Packages/Python/for.sublime-snippet",
 		"/home/huxley/Dropbox/code/Dashboard/server/quantum/indicator/wrb_analysis/dcm/__init__.py",
-		"/home/huxley/.config/sublime-text-2/Packages/User/bla.sublime-snippet",
+		"/home/huxley/.app.config/sublime-text-2/Packages/User/bla.sublime-snippet",
 		"/home/huxley/Dropbox/code/Dashboard/server/quantum/indicator/wrb/__init__.py",
-		"/home/huxley/.config/sublime-text-2/Packages/SublimeCodeIntel/Default (Linux).sublime-keymap",
+		"/home/huxley/.app.config/sublime-text-2/Packages/SublimeCodeIntel/Default (Linux).sublime-keymap",
 		"/home/huxley/.zshrc",
 		"/home/huxley/Dropbox/code/hxl_src/app/views.py",
 		"/home/huxley/Dropbox/code/Dashboard/server/start.py",
-		"/home/huxley/.config/sublime-text-2/Packages/CoffeeComplete Plus (Autocompletion)/README.md",
+		"/home/huxley/.app.config/sublime-text-2/Packages/CoffeeComplete Plus (Autocompletion)/README.md",
 		"/etc/fstab",
-		"/home/huxley/.config/sublime-text-2/Packages/SideBarEnhancements/messages/11.13.2012.1305.0.txt",
+		"/home/huxley/.app.config/sublime-text-2/Packages/SideBarEnhancements/messages/11.13.2012.1305.0.txt",
 		"/home/huxley/.zsh"
 	],
 	"find":
@@ -253,7 +252,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 92.0,
+		"height": 90.0,
 		"where_history":
 		[
 			"<open folders>"
@@ -261,9 +260,29 @@
 	},
 	"find_state":
 	{
-		"case_sensitive": false,
+		"case_sensitive": true,
 		"find_history":
 		[
+			"server.app.config",
+			"api",
+			"app.config.data_path",
+			"MTGOX",
+			"app.config",
+			"app.config.days_download",
+			"app.config.currency",
+			"app.config.data_path",
+			"app.config.currency",
+			"app.config",
+			"app.config.currency",
+			"app.config.key",
+			"app.config.url",
+			"app.config",
+			"path",
+			"LOOK_BACK",
+			"CONTRACTION",
+			"MtGox",
+			"MTGOX",
+			"DUKASCOPY",
 			"from tool import deepthroat as dt",
 			"min(65, i)):  # 64 + 1 = 65",
 			"68, -1):  # 4 + 64 = 68",
@@ -371,27 +390,7 @@
 			"bool_",
 			"bool8",
 			"_bool",
-			"dtype=np.bool)",
-			"dtype=np.int64)",
-			"range(1, j):",
-			"\n                ",
-			"range(1, j):\n",
-			"range(1, j):",
-			"(1, j)",
-			"range(i-1, i-65, -1)",
-			"[i + j",
-			"[i - j",
-			"i - j",
-			"[v2]",
-			"for j in range(i+1, size):",
-			"for j in range(i-1, 0, -1):",
-			"for j in range(i+1, size):",
-			"[j",
-			"range(i - 1, i - 65, -1):  # 64 + 1 = 65",
-			"[j",
-			"range(i - 1, i - 65, -1):  # 64 + 1 = 65",
-			"range(i - 2, i - 66, -1):",
-			"range(i - 2, i - 66, -1)"
+			"dtype=np.bool)"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -399,7 +398,13 @@
 		"regex": false,
 		"replace_history":
 		[
-			"from server.tool import deepthroat as dt",
+			"app.config",
+			"server",
+			"app.config",
+			"QUANTUM_LOOK_BACK",
+			"QUANTUM_CONTRACTION",
+			"CONTRACTION",
+			"from app.tool import deepthroat as dt",
 			"'",
 			"low[i] + (high[i] - low[i])*.8",
 			"low[i] + (high[i] - low[i])*.2",
@@ -520,13 +525,7 @@
 			"contraction_share",
 			"swing_point1",
 			"contraction_fill",
-			"contraction_retrace",
-			"volatility_strong_expand_before",
-			"volatility_strong_expand_after",
-			"volatility_expand_before",
-			"volatility_expand_after",
-			"volatility_week_expand_before",
-			"volatility_week_expand_after"
+			"contraction_retrace"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -537,23 +536,23 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "quantum/analysis/wrb_analysis/dcm.py",
+					"file": "start.py",
 					"settings":
 					{
-						"buffer_size": 1956,
+						"buffer_size": 275,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								146,
-								146
+								34,
+								34
 							]
 						],
 						"settings":
@@ -648,7 +647,6 @@
 							},
 							"sublimelinter_wrap_find": true,
 							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
@@ -659,18 +657,18 @@
 				},
 				{
 					"buffer": 1,
-					"file": "quantum/analysis/wrb_analysis/fvb.py",
+					"file": "/home/huxley/Dropbox/code/Dashboard/client/app/__init__.py",
 					"settings":
 					{
-						"buffer_size": 1922,
+						"buffer_size": 170,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								113,
-								113
+								0,
+								0
 							]
 						],
 						"settings":
@@ -764,9 +762,7 @@
 								"Ruby on Rails": "ruby"
 							},
 							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Python/Python.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -776,18 +772,18 @@
 				},
 				{
 					"buffer": 2,
-					"file": "quantum/analysis/wrb_analysis/zone.py",
+					"file": "__init__.py",
 					"settings":
 					{
-						"buffer_size": 19888,
+						"buffer_size": 13,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								167,
-								167
+								13,
+								13
 							]
 						],
 						"settings":
@@ -881,30 +877,34 @@
 								"Ruby on Rails": "ruby"
 							},
 							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Python/Python.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
-				},
+				}
+			]
+		},
+		{
+			"selected": 2,
+			"sheets":
+			[
 				{
 					"buffer": 3,
-					"file": "quantum/analysis/vsa_analysis/supply_demand.py",
+					"file": "app.config.py",
 					"settings":
 					{
-						"buffer_size": 45065,
+						"buffer_size": 858,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								149,
-								149
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1010,18 +1010,18 @@
 				},
 				{
 					"buffer": 4,
-					"file": "quantum/analysis/wrb_analysis/toolbox.py",
+					"file": "quantum/__init__.py",
 					"settings":
 					{
-						"buffer_size": 9577,
+						"buffer_size": 43,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								94,
-								94
+								5,
+								5
 							]
 						],
 						"settings":
@@ -1115,36 +1115,28 @@
 								"Ruby on Rails": "ruby"
 							},
 							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Python/Python.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
+				},
 				{
 					"buffer": 5,
-					"file": "config.py",
+					"file": "market/__init__.py",
 					"settings":
 					{
-						"buffer_size": 838,
+						"buffer_size": 112,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								23,
-								23
+								30,
+								30
 							]
 						],
 						"settings":
@@ -1238,242 +1230,10 @@
 								"Ruby on Rails": "ruby"
 							},
 							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Python/Python.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "/home/huxley/.config/sublime-text-2/Packages/Pretty JSON/Pretty JSON.sublime-settings",
-					"settings":
-					{
-						"buffer_size": 118,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								88,
-								88
-							]
-						],
-						"settings":
-						{
-							"annotations":
-							[
-								"TODO",
-								"README",
-								"FIXME"
-							],
-							"csslint_options":
-							{
-								"adjoining-classes": "warning",
-								"box-model": true,
-								"box-sizing": "warning",
-								"compatible-vendor-prefixes": "warning",
-								"display-property-grouping": true,
-								"duplicate-background-images": "warning",
-								"duplicate-properties": true,
-								"empty-rules": true,
-								"errors": true,
-								"fallback-colors": "warning",
-								"floats": "warning",
-								"font-faces": "warning",
-								"font-sizes": "warning",
-								"gradients": "warning",
-								"ids": "warning",
-								"import": "warning",
-								"important": "warning",
-								"known-properties": true,
-								"outline-none": "warning",
-								"overqualified-elements": "warning",
-								"qualified-headings": "warning",
-								"regex-selectors": "warning",
-								"rules-count": "warning",
-								"shorthand": "warning",
-								"star-property-hack": "warning",
-								"text-indent": "warning",
-								"underscore-property-hack": "warning",
-								"unique-headings": "warning",
-								"universal-selector": "warning",
-								"vendor-prefix": true,
-								"zero-units": "warning"
-							},
-							"gjslint_ignore":
-							[
-								110
-							],
-							"gjslint_options":
-							[
-							],
-							"javascript_linter": "jshint",
-							"jshint_options":
-							{
-								"browser": true,
-								"evil": true,
-								"regexdash": true,
-								"sub": true,
-								"trailing": true,
-								"wsh": true
-							},
-							"pep8": true,
-							"pep8_ignore":
-							[
-								"E501"
-							],
-							"perl_linter": "perlcritic",
-							"pyflakes_ignore":
-							[
-							],
-							"pyflakes_ignore_import_*": true,
-							"sublimelinter": true,
-							"sublimelinter_delay": 2,
-							"sublimelinter_disable":
-							[
-							],
-							"sublimelinter_executable_map":
-							{
-							},
-							"sublimelinter_fill_outlines": false,
-							"sublimelinter_gutter_marks": true,
-							"sublimelinter_gutter_marks_theme": "simple",
-							"sublimelinter_mark_style": "none",
-							"sublimelinter_notes": false,
-							"sublimelinter_objj_check_ascii": false,
-							"sublimelinter_popup_errors_on_save": false,
-							"sublimelinter_syntax_map":
-							{
-								"C++": "c",
-								"Python Django": "python",
-								"Ruby on Rails": "ruby"
-							},
-							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/AAAPackageDev/Support/Sublime Settings.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "/home/huxley/.config/sublime-text-2/Packages/Default/Default (Linux).sublime-keymap",
-					"settings":
-					{
-						"buffer_size": 31027,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								26549,
-								26549
-							]
-						],
-						"settings":
-						{
-							"annotations":
-							[
-								"TODO",
-								"README",
-								"FIXME"
-							],
-							"csslint_options":
-							{
-								"adjoining-classes": "warning",
-								"box-model": true,
-								"box-sizing": "warning",
-								"compatible-vendor-prefixes": "warning",
-								"display-property-grouping": true,
-								"duplicate-background-images": "warning",
-								"duplicate-properties": true,
-								"empty-rules": true,
-								"errors": true,
-								"fallback-colors": "warning",
-								"floats": "warning",
-								"font-faces": "warning",
-								"font-sizes": "warning",
-								"gradients": "warning",
-								"ids": "warning",
-								"import": "warning",
-								"important": "warning",
-								"known-properties": true,
-								"outline-none": "warning",
-								"overqualified-elements": "warning",
-								"qualified-headings": "warning",
-								"regex-selectors": "warning",
-								"rules-count": "warning",
-								"shorthand": "warning",
-								"star-property-hack": "warning",
-								"text-indent": "warning",
-								"underscore-property-hack": "warning",
-								"unique-headings": "warning",
-								"universal-selector": "warning",
-								"vendor-prefix": true,
-								"zero-units": "warning"
-							},
-							"gjslint_ignore":
-							[
-								110
-							],
-							"gjslint_options":
-							[
-							],
-							"javascript_linter": "jshint",
-							"jshint_options":
-							{
-								"browser": true,
-								"evil": true,
-								"regexdash": true,
-								"sub": true,
-								"trailing": true,
-								"wsh": true
-							},
-							"pep8": true,
-							"pep8_ignore":
-							[
-								"E501"
-							],
-							"perl_linter": "perlcritic",
-							"pyflakes_ignore":
-							[
-							],
-							"pyflakes_ignore_import_*": true,
-							"sublimelinter": true,
-							"sublimelinter_delay": 2,
-							"sublimelinter_disable":
-							[
-							],
-							"sublimelinter_executable_map":
-							{
-							},
-							"sublimelinter_fill_outlines": false,
-							"sublimelinter_gutter_marks": true,
-							"sublimelinter_gutter_marks_theme": "simple",
-							"sublimelinter_mark_style": "none",
-							"sublimelinter_notes": false,
-							"sublimelinter_objj_check_ascii": false,
-							"sublimelinter_popup_errors_on_save": false,
-							"sublimelinter_syntax_map":
-							{
-								"C++": "c",
-								"Python Django": "python",
-								"Ruby on Rails": "ruby"
-							},
-							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/AAAPackageDev/Support/Sublime Key Map.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 8487.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1556,6 +1316,6 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 150.0,
+	"side_bar_width": 215.0,
 	"status_bar_visible": true
 }
