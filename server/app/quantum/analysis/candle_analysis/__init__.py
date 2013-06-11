@@ -1,6 +1,7 @@
 #-*- coding: utf-8-*-
 import bottleneck as bn
 from . import base
+from app.config import QUANTUM_AVG_LEN
 
 
 def calculate(df, vol_avg=True, dir=True, body_size=True,
@@ -15,7 +16,7 @@ def calculate(df, vol_avg=True, dir=True, body_size=True,
     assert 'close' in df, 'DataFrame must have close column'
 
     if vol_avg:
-        df['volume_average'] = bn.move_mean(df['volume'], 14)
+        df['volume_average'] = bn.move_mean(df['volume'], QUANTUM_AVG_LEN)
     if dir:
         df['dir'] = base.dir(df['open'], df['close'])
     if body_size:
