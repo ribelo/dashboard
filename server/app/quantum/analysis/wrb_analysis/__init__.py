@@ -4,6 +4,7 @@ from . import base
 from . import dcm
 from . import zone
 from . import fvb
+from . import vtr
 
 
 def calculate_base(df, gap=True, reaction=True, reaction_break=True,
@@ -46,7 +47,7 @@ def calculate_base(df, gap=True, reaction=True, reaction_break=True,
 
 
 def calculate_zones(df, sp1=True, sp2=True, sc1=True, sc2=True,
-                    sc3=True, sc4=True, reaction=True):
+                    sc3=True, sc4=True, reaction=True, inside_zone=True):
 
     zones = pd.DataFrame(index=df.index)
     if sp1:
@@ -108,6 +109,11 @@ def calculate_zones(df, sp1=True, sp2=True, sc1=True, sc2=True,
         zones['strong_continuation4'] = df['strong_continuation4']
     df['zones'] = zones.sum(axis=1)
 
+    if inside_zone:
+        df['inside_zone'] = zone.inside_zone(df['open'], df['high'],
+                                             df['low'], df['close'],
+                                             df['filled_by'], df['zones'])
+
 
 def calculate_fvb(df, basic=True):
 
@@ -126,6 +132,37 @@ def calculate_fvb(df, basic=True):
                               df['filled_by'], df['wrb'], df['zones'])
 
 
+def calculate_vtr(df1, df2, invert_sister=False):
+    assert 'open' in df1, 'DataFrame must have open column'
+    assert 'close' in df1, 'DataFrame must have close column'
+    assert 'bar_mid_point' in df1, 'DataFrame must have bar mid point column'
+    assert 'filled_by' in df1, 'DataFrame must have filled by column'
+    assert 'wrb_hg' in df1, 'DataFrame must have body wrb column'
+    assert 'zones' in df1, 'DataFrame must have body zones column'
+    assert 'open' in df2, 'DataFrame must have open column'
+    assert 'close' in df2, 'DataFrame must have close column'
+    assert 'bar_mid_point' in df2, 'DataFrame must have bar mid point column'
+    assert 'filled_by' in df2, 'DataFrame must have filled by column'
+    assert 'wrb_hg' in df2, 'DataFrame must have body wrb column'
+    assert 'zones' in df2, 'DataFrame must have body zones column'
+    if not invert_sister:
+        temp = vtr.vtr(
+            df1['open'], df1['close'], df1['dir'], df1['body_mid_point'],
+            df1['filled_by'], df1['wrb_hg'], df1['zones'],
+            df2['open'], df2['close'], df2[
+                'dir'], df2['body_mid_point'],
+            df2['filled_by'], df2['wrb_hg'], df2['zones'])
+    else:
+        temp = vtr.vtr(
+            df1['open'], df1['close'], df1['dir'], df1['body_mid_point'],
+            df1['filled_by'], df1['wrb_hg'], df1['zones'],
+            pow(df2['open'], -1), pow(df2['close'], -1),
+            df2['dir'] * -1, pow(df2['body_mid_point'], -1),
+            df2['filled_by'], df2['wrb_hg'] * -1, df2['zones'] * -1)
+    df1['vtr'] = temp
+    df2['vtr'] = temp
+
+
 def calculate_dcm(df):
 
     assert 'open' in df, 'DataFrame must have open column'
@@ -137,3 +174,10 @@ def calculate_dcm(df):
 
     df['dcm'] = dcm.get(df['open'], df['high'], df['low'],
                         df['close'], df['wrb'], df['wrb_hg'])
+
+
+def calculate_all(df):
+    calculate_base(df)
+    calculate_zones(df)
+    calculate_fvb(df)
+    calculate_dcm(df)

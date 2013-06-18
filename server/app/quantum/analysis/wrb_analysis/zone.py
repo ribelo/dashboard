@@ -5,7 +5,7 @@ from numba.decorators import jit
 from numba import double, int64, int8
 from app.tool import deepthroat as dt
 from .toolbox import *
-from app.config import QUANTUM_CONTRACTION
+from app.config import QUANTUM_CONTRACTION, QUANTUM_LOOK_BACK
 
 
 @jit(int8[:](double[:], double[:], double[:], double[:], int8[:],
@@ -412,7 +412,7 @@ def strong_continuation4(open, high, low, close, dir, body_size,
             if (dir[v1] == 1 and wrb_hg[v2] == 1 and
                 # V1 body > V2 body and close V1 > close V2
                 body_size[v1] > body_size[v2] and close[v1] > close[2] and
-                body_mid_point[v2] > dt.nanmin(close[v2+1:v1]) and
+                body_mid_point[v2] > dt.nanmin(close[v2 + 1:v1]) and
                 # Contraction volatility must share min 1 pip with V2
                 contraction_share(v1, v2, high, low) and
                 # V1 must breakout volatility contraction
@@ -427,7 +427,7 @@ def strong_continuation4(open, high, low, close, dir, body_size,
             elif (dir[v1] == -1 and wrb_hg[v2] == -1 and
                   # V1 body > V2 body and close V1 > close V2
                   body_size[v1] > body_size[v2] and close[v1] > close[2] and
-                  body_mid_point[v2] < dt.nanmin(close[v2+1:v1]) and
+                  body_mid_point[v2] < dt.nanmin(close[v2 + 1:v1]) and
                   # Contraction volatility must share min 1 pip with V2
                   contraction_share(v1, v2, high, low) and
                   # V1 must breakout volatility contraction
@@ -437,4 +437,39 @@ def strong_continuation4(open, high, low, close, dir, body_size,
                     contraction_body_size_break(v1, v2, body_size)):
                 result[v1] = -1
                 break
+    return result
+
+
+@jit(int64[:](double[:], double[:], double[:], double[:], int64[:], int64[:]))
+def inside_zone(open, high, low, close, filled_by, zones):
+    """Look for canldes inside wrb zone
+
+    Parameters
+    ----------
+    candle high: double[:]
+    candle low: double[:]
+    candle filled by candle: int64[:]
+    candle zones: int8[:]
+
+    Returns
+    -------
+    int64[:]
+    nr of candle zone
+    """
+
+    size = open.shape[0]
+    result = np.zeros(size, dtype=np.int64)
+
+    for i in range(size):
+        for j in range(1, min(QUANTUM_LOOK_BACK, i - QUANTUM_LOOK_BACK)):
+            if (zones[i-j] > 0 and ((high[i] > open[i-j] and high[i] < close[i-j])
+                or (low[i] > open[i-j] and low[i] < close[i-j])) and
+                    filled_by[i - j] > i):
+                        result[i] = i - j
+                        break
+            elif (zones[i-j] < 0 and ((high[i] > close[i-j] and high[i] < open[i-j])
+                  or (low[i] > close[i-j] and low[i] < open[i-j])) and
+                    filled_by[i - j] > i):
+                        result[i] = i - j
+                        break
     return result
